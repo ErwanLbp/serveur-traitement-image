@@ -1,0 +1,30 @@
+h1{
+	position: relative;
+	margin-left: 35%;
+}
+
+#formulaireTransfoDeBase{
+	float: left;
+}
+
+#formulaireTransfoRedim{
+	float: left;
+}
+
+#formulaireTransfoCustom{
+	float: left;
+}
+
+#download{
+	position: relative;
+	margin-top: 2%;
+}
+
+.champNombre{
+	width: 15%;
+}
+
+#chercherImage{
+	position: relative;	
+	margin-top: 18%; 
+}
