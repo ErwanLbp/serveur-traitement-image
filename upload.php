@@ -2,7 +2,7 @@
 
 session_start();
 
-$dossier = 'upload/';
+$dossier = 'Images/';
 $_SESSION['nomImage'] = basename($_FILES['photo']['name']);
 // $tailleMax = 1000000;
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
