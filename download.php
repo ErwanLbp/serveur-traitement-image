@@ -9,7 +9,7 @@ if (($_SESSION['algorithme'] == 'niveauGris') || ($_SESSION['algorithme'] == 'la
 	$_SESSION['nomImage'] = mb_strcut($_SESSION['nomImage'], 0, strlen($_SESSION['nomImage'])-4).'.pgm';
 }
 
-$nom='/opt/lampp/htdocs/www/ServeurTraitementImage/site_STI/Images/'.$_SESSION['algorithme'].'_'.$_SESSION['nomImage'];
+$nom='./Images/'.$_SESSION['algorithme'].'_'.$_SESSION['nomImage'];
 
 if(file_exists($nom)){
 	$fichier=basename($nom);
