@@ -24,7 +24,7 @@ if((!isset($photo)) && (!isset($erreur))){
 			header('location:index.php');
 			exit();
 		}
-		if( $_SESSION['algorithme'] === "masqueCutsom"){
+		else if( $_SESSION['algorithme'] === "masqueCutsom"){
 			exec('./STI '.$_SESSION['nomImage'].' '.$_SESSION['algorithme'].' '.$_POST['m1'].' '.$_POST['m2'].' '.$_POST['m3'].' '.$_POST['m4'].' '.$_POST['m5'].' '.$_POST['m6'].' '.$_POST['m7'].' '.$_POST['m8'].' '.$_POST['m9'].' '.'9');
 			unlink($dossier.$_SESSION['nomImage']);
 			header('location:index.php');

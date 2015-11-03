@@ -11,6 +11,7 @@ session_start();
 	<title>Traitement d'Image</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<script type="text/javascript" src="fonctions.js"></script>
 </head>
 
 <body>
@@ -42,16 +43,16 @@ session_start();
 			<div id ="formulaireTransfoRedim">
 				<input type ="radio" name ="algorithme" value ="redimensionnement">Redimensionnement</option><br><br>
 				<div id="redim">
-				Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
-				Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
-				Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"><br>
-				Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"><br><br>
+					Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
+					Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
+					Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"><br>
+					Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"><br><br>
 				</div>
 			</div>
 
 			<div id ="formulaireTransfoCustom">
-			<input type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
-				<div id="matCustom">
+				<input type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
+				<div id="masqueCustom">
 					<p>Remplir la matrice suivante : </p>
 					<input class="champNombre" type ="number" name ="m1" value ="0">
 					<input class="champNombre" type ="number" name ="m2" value ="0">
