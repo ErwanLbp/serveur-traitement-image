@@ -11,6 +11,7 @@ if (($_SESSION['algorithme'] == 'niveauGris') || ($_SESSION['algorithme'] == 'la
 
 $nom='./Images/'.$_SESSION['algorithme'].'_'.$_SESSION['nomImage'];
 
+
 if(file_exists($nom)){
 	$fichier=basename($nom);
 
