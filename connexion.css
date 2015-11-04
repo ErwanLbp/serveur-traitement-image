@@ -1,0 +1,59 @@
+#formulaireConnexion{
+	background-color: #375D81;
+	border-radius: 50%;
+
+	width: 30%;
+	margin-top: 15%;
+	margin-left: 30%;
+	text-align: center;
+	color : #E1E6FA;
+	font-weight     : bold;
+}
+
+.bouton:hover{
+	box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+	transition: 0.6s;
+}
+
+.bouton{
+	border-radius   : 5px; 
+	padding         : 5px 5px; 
+	color           : rgba(0, 0, 0, 0.8);
+	font-weight     : bold;
+	transition: 0.4s;
+}
+
+.i-large,
+.i-medium,
+.i-small {
+	position : absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+ 
+/*.i-large {
+	background: url("./Ananas1.jpg") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 2s linear infinite;
+	     -o-animation: dropFlowParticles 2s linear infinite;
+	        animation: dropFlowParticles 2s linear infinite;
+}*/
+/*.i-medium {
+	background: url("./Ananas1.jpg") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 12s linear infinite;
+	     -o-animation: dropFlowParticles 12s linear infinite;
+	        animation: dropFlowParticles 12s linear infinite;
+}*/
+/*.i-small {
+	background:url("./AnanasPetit.jpg") repeat 0px 0px;
+	-webkit-animation: dropFlowParticles 27s linear infinite;
+	     -o-animation: dropFlowParticles 27s linear infinite;
+	        animation: dropFlowParticles 27s linear infinite;
+}*/
+ 
+@-webkit-keyframes dropFlowParticles {
+	from { background-position: 0 0; }
+	to { background-position: 0 413px; }
+}
+@keyframes dropFlowParticles {
+	from { background-position: 0 0; }
+	to { background-position: 0 413px; }
+}
