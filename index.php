@@ -17,6 +17,7 @@ session_start();
 </head>
 
 <body>
+	<?php include('connectBDD.php'); ?>
 	<?php include('header.php'); ?>	
 
 	<article>
