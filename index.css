@@ -28,3 +28,19 @@ h1{
 	position: relative;	
 	margin-top: 18%; 
 }
+
+#redimensionnement:checked ~ #redim {
+	display: block;
+}
+
+#redim {
+	display: none;
+}
+
+#masque:checked ~ #masqueCustom {
+	display: block;
+}
+
+#masqueCustom {
+	display: none;
+}

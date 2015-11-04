@@ -11,7 +11,6 @@ session_start();
 	<title>Traitement d'Image</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="index.css">
-	<script type="text/javascript" src="fonctions.js"></script>
 </head>
 
 <body>
@@ -41,7 +40,7 @@ session_start();
 			</div>
 
 			<div id ="formulaireTransfoRedim">
-				<input type ="radio" name ="algorithme" value ="redimensionnement">Redimensionnement</option><br><br>
+				<input type ="radio" id="redimensionnement" name ="algorithme" value ="redimensionnement">Redimensionnement</option><br><br>
 				<div id="redim">
 					Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
 					Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
@@ -51,7 +50,7 @@ session_start();
 			</div>
 
 			<div id ="formulaireTransfoCustom">
-				<input type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
+				<input id="masque" type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
 				<div id="masqueCustom">
 					<p>Remplir la matrice suivante : </p>
 					<input class="champNombre" type ="number" name ="m1" value ="0">
@@ -85,7 +84,6 @@ session_start();
 		<input type="submit" name="recuperer" value="Récupérer l'image">
 	</form>
 </fieldset>
-
 
 </body>
 </html>
