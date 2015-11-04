@@ -11,12 +11,15 @@ session_start();
 	<title>Traitement d'Image</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
+	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 
 <body>
-	
-	<h1>Serveur de traitement d'image</h1>
+	<?php include('header.php'); ?>	
 
+	<article>
 	<!-- 	Premier formulaire pour toutes les transformations qui ont pas besoin d'argument  -->
 	<fieldset>
 		<legend>Pas d'idée de légende ...</legend>
@@ -85,5 +88,8 @@ session_start();
 	</form>
 </fieldset>
 
+</article>
+
+<?php include('footer.php'); ?>
 </body>
 </html>

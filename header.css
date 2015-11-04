@@ -1,0 +1,24 @@
+header{
+	position: relative;
+	height  : 110px;
+}
+
+header img{
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	border-radius: 5px 5px 5px 5px;
+}
+
+header div {
+	float: left;
+}
+
+.login{
+	float:right;
+	text-align:center;
+	border:1px solid white;
+	width:30%;
+	height:75%;
+	box-shadow:2px 2px 2px;
+	background-color:#FFE4E1;
+}

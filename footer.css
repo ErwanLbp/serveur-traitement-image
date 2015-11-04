@@ -1,0 +1,10 @@
+footer{
+	position: relative;
+	height  : 2.8em;
+	float: left;
+	width: 100%;
+}
+
+footer div{
+	float: left;
+}
