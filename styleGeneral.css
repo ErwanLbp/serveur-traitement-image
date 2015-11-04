@@ -1,0 +1,37 @@
+*{
+	/*border: 1px solid;*/
+		box-sizing: border-box;
+}
+article{
+	float        : left;
+	margin-top   : 10px;
+	margin-bottom: 10px;
+	position     : relative;
+	width        : 100%; 
+	min-height   : 450px;
+}
+
+.gauche{
+	float       : left;
+	width       : 33.3%;
+	height      : inherit;
+	text-align  : left;
+	height      : inherit;
+	padding-left: 10px;
+}
+
+.centre{
+	height      : inherit;
+	width       : 33.3%;
+	text-align  : center;
+	padding     : 5px;
+}
+
+.droite{
+	height       : inherit;
+	float        : right;
+	width        : 33.3%;
+	text-align   : right;
+	height       : inherit;
+	padding-right: 10px;
+}
