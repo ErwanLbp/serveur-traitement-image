@@ -32,6 +32,8 @@ print_r($donnee);
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="connexion.css">	
+	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 <body>
 
@@ -39,7 +41,9 @@ print_r($donnee);
 	<div class="i-large"></div>
 	<div class="i-medium"></div>
 	<div class="i-small"></div>
-	</div>
+</div>
+
+	<?php include ('header.php'); ?>
 
 	<article>
 	<form method="post" action="connexion.php">
@@ -64,5 +68,6 @@ print_r($donnee);
 	</form>
 	</article>
 
+		<?php include('footer.php'); ?>
 	</body>
 	</html>

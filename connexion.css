@@ -4,7 +4,7 @@
 
 	width: 30%;
 	margin-top: 15%;
-	margin-left: 30%;
+	margin-left: 35%;
 	text-align: center;
 	color : #E1E6FA;
 	font-weight     : bold;
@@ -35,19 +35,21 @@
 	-webkit-animation: dropFlowParticles 2s linear infinite;
 	     -o-animation: dropFlowParticles 2s linear infinite;
 	        animation: dropFlowParticles 2s linear infinite;
-}*/
-/*.i-medium {
+}
+.i-medium {
 	background: url("./Ananas1.jpg") repeat 0px 0px;
 	-webkit-animation: dropFlowParticles 12s linear infinite;
 	     -o-animation: dropFlowParticles 12s linear infinite;
 	        animation: dropFlowParticles 12s linear infinite;
 }*/
-/*.i-small {
-	background:url("./AnanasPetit.jpg") repeat 0px 0px;
+.i-small {
+	background:url("./Ananas.jpg") repeat;
+	padding-right: 200px;
 	-webkit-animation: dropFlowParticles 27s linear infinite;
 	     -o-animation: dropFlowParticles 27s linear infinite;
 	        animation: dropFlowParticles 27s linear infinite;
-}*/
+	        /*animation-direction: reverse;*/
+}
  
 @-webkit-keyframes dropFlowParticles {
 	from { background-position: 0 0; }

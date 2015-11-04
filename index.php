@@ -36,7 +36,7 @@ if(!isset($_SESSION['pseudo']))
 				<input type ="radio" name ="algorithme" value ="symetrieH">Symétrie horizontale</option><br>
 				<input type ="radio" name ="algorithme" value ="symetrieV">Symétrie verticale</option><br>
 				<input type ="radio" name ="algorithme" value ="negatif">Négatif</option><br>
-				<input type ="radio" name ="algorithme" value ="Amélioration du contraste">Amélioration du contraste</option><br>
+				<input type ="radio" name ="algorithme" value ="ameliorationContraste">Amélioration du contraste</option><br>
 				<input type ="radio" name ="algorithme" value ="lissage">Lissage</option><br>
 				<input type ="radio" name ="algorithme" value ="laplacien">Laplacien</option><br>
 				<input type ="radio" name ="algorithme" value ="gradientSimple">Gradient Simple</option><br>
