@@ -5,14 +5,23 @@ h1{
 
 #formulaireTransfoDeBase{
 	float: left;
+	border-style : solid;
+	width : 21%;
+	height : 300px; 
 }
 
 #formulaireTransfoRedim{
 	float: left;
+	border-style : solid;
+	width : 21%;
+	height : 300px;
 }
 
 #formulaireTransfoCustom{
 	float: left;
+	border-style : solid;
+	width : 21%;
+	height : 300px;
 }
 
 #download{
