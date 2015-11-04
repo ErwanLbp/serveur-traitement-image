@@ -3,11 +3,11 @@ session_start();
 
 if(isset($_SESSION['pseudo']))
 	header("Location: index.php");
+	
+include('connectBDD.php');
 
-$erreur = "Tout Va Bien";
+$erreur = "";
 if(isset($_POST['pseudo'])){
-
-	include('connectBDD.php');
 
 	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
 	$req->execute(array($_POST['pseudo'],$_POST['mdp']));
@@ -15,8 +15,7 @@ if(isset($_POST['pseudo'])){
 	$donnee = $req->fetch();
 	$req->closeCursor();
 
-print_r($donnee);
-	if(isset($donnee)){
+	if($donnee['pseudo'] == $_POST['pseudo']){
 		$_SESSION['pseudo'] = $donnee['pseudo'];
 		header('Location: index.php');
 	}
@@ -46,10 +45,13 @@ print_r($donnee);
 	<?php include ('header.php'); ?>
 
 	<article>
+
 	<form method="post" action="connexion.php">
 		<fieldset id="formulaireConnexion">
 
 			<br><br>
+			<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
+
 
 			<label>Pseudo<br><br>
 				<input type="text" id="pseudo" name="pseudo"/>
