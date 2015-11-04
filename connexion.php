@@ -5,16 +5,17 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="connexion.css">	
+	<link rel="stylesheet" type="text/css" href="header.css">
+	<link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 <body>
 	<div class="illustration">
 	<div class="i-large"></div>
 	<div class="i-medium"></div>
 	<div class="i-small"></div>
-	</div>
+</div>
 
-<!-- 	<?php include('fond.php'); ?>
-	<?php include ('header.php'); ?> -->
+	<?php include ('header.php'); ?>
 
 	<article>
 	<form method="post" action="connexion.php">
@@ -38,5 +39,6 @@
 	</form>
 	</article>
 
+		<?php include('footer.php'); ?>
 	</body>
 	</html>
