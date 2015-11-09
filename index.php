@@ -25,10 +25,10 @@ session_start();
 			<form method="post" action="upload.php" enctype="multipart/form-data">
 				<legend>Download l'image</legend>
 				<div id ="chercherImage">
-					<p>Etape 1 : Chercher la photo à transformer</p>
 					<input type="hidden" name="MAX_FILE_SIZE" value="taille">
-					<input type ="file" name ="photo" size ="taille"><br><br>
-					<input type ="submit" name="recuperer" value ="Recup"><br>
+					<input type ="file" id="bouttonFile" name ="photo" size ="taille" onchange="this.form.submit()"><br><br>
+
+
 				</div>
 			</form>
 
@@ -36,13 +36,10 @@ session_start();
 				<?php 
 				if(isset($_SESSION['cheminImageJPG']))
 					echo "<img src='".$_SESSION['cheminImageJPG']."' alt='".basename($_SESSION['cheminImage'])."'>";
-				else
-					echo "<p>Chargez une image</p>";
 				?>
 			</div>
 
 			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-				<p>Etape 3 : Choisir la transformation</p>
 
 				<div id ="formulaireTransfoDeBase">
 					<input type ="submit" name ="algorithme" value ="Binarisation">
