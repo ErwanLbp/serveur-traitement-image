@@ -88,6 +88,16 @@ session_start();
 	</form>
 </fieldset>
 
+
+
+
+<div id="CanvasImage" style="border:solid">
+	<h1>Affichage de l'image</h1>
+	
+</div>
+
+
+
 </article>
 
 <?php include('footer.php'); ?>
