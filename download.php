@@ -24,6 +24,7 @@ if(file_exists($nom)){
 	ob_clean();
 	readfile($nom);
 	unlink($nom);
+	session_destroy();
 	exit();
 
 }

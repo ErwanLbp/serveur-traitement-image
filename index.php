@@ -21,9 +21,8 @@ session_start();
 
 	<article>
 
-
-		<form method="post" action="upload.php" enctype="multipart/form-data">
-			<fieldset>
+		<fieldset>
+			<form method="post" action="upload.php" enctype="multipart/form-data">
 				<legend>Download l'image</legend>
 				<div id ="chercherImage">
 					<p>Etape 1 : Chercher la photo à transformer</p>
@@ -32,6 +31,15 @@ session_start();
 					<input type ="submit" name="recuperer" value ="Recup"><br>
 				</div>
 			</form>
+
+			<div id="CanvasImage">
+				<?php 
+				if(isset($_SESSION['cheminImageJPG']))
+					echo "<img src='".$_SESSION['cheminImageJPG']."' alt='".basename($_SESSION['cheminImage'])."'>";
+				else
+					echo "<p>Chargez une image</p>";
+				?>
+			</div>
 
 			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 				<p>Etape 3 : Choisir la transformation</p>
@@ -88,17 +96,6 @@ session_start();
 				<input type="submit" name="recuperer" value="Récupérer l'image">
 			</form>
 		</fieldset>
-
-		<div id="CanvasImage" style="border:solid">
-			<h1>Affichage de l'image</h1>
-			<?php 
-			if(isset($_SESSION['cheminImageJPG']))
-				echo "<img src='".$_SESSION['cheminImageJPG']."' alt='".basename($_SESSION['cheminImage'])."'>";
-			else
-				echo "<p>Chargez une image</p>";
-			?>
-		</div>
-
 
 	</article> 
 
