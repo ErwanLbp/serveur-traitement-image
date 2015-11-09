@@ -3,7 +3,7 @@
 session_start();
 
 $dossier = 'Images/';
-$_SESSION['nomImage'] = basename($_FILES['photo']['name']);
+$_SESSION['cheminImage'] = $_FILES['photo']['name'];
 // $tailleMax = 1000000;
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
@@ -16,33 +16,13 @@ if(!in_array($extension, $extensionsPossible)){
 
 if((!isset($photo)) && (!isset($erreur))){
 
-	if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier.$_SESSION['nomImage'])){
-
-		if( $_SESSION['algorithme'] === "redimensionnement"){
-			exec('./STI '.$_SESSION['nomImage'].' '.$_SESSION['algorithme'].' '.$_POST['x1'].' '.$_POST['y1'].' '.$_POST['x2'].' '.$_POST['y2']);
-			unlink($dossier.$_SESSION['nomImage']);
-			header('location:index.php');
-			exit();
-		}
-		else if( $_SESSION['algorithme'] === "masqueCutsom"){
-			exec('./STI '.$_SESSION['nomImage'].' '.$_SESSION['algorithme'].' '.$_POST['m1'].' '.$_POST['m2'].' '.$_POST['m3'].' '.$_POST['m4'].' '.$_POST['m5'].' '.$_POST['m6'].' '.$_POST['m7'].' '.$_POST['m8'].' '.$_POST['m9'].' '.'9');
-			unlink($dossier.$_SESSION['nomImage']);
-			header('location:index.php');
-			exit();
-		}
-		else{
-			exec('./STI '.$_SESSION['nomImage'].' '.$_SESSION['algorithme']);
-			unlink($dossier.$_SESSION['nomImage']);
-			header('location:index.php');
-			exit();
-		}
+	if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier.basename($_SESSION['cheminImage']))){
+		exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg';);
 	}
-	else{
+	else
 		echo 'Echec de l\'upload !';
-	}
 }
-else{
+else
 	echo 'Erreur upload';
-}
 
 ?>
