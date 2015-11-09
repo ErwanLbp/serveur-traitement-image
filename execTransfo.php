@@ -46,23 +46,23 @@ switch ($_POST['algorithme']) {
 	break;
 }
 
-if( $_SESSION['algorithme'] === "redimensionnement"){
+if( $_SESSION['algorithme'] === "redimensionnement")
 	exec('./STI '.basename($_SESSION['cheminImage']).' '.$_SESSION['algorithme'].' '.$_POST['x1'].' '.$_POST['y1'].' '.$_POST['x2'].' '.$_POST['y2']);
-	unlink($_SESSION['cheminImage']);
-	header('location:index.php');
-	exit();
-}
-else if( $_SESSION['algorithme'] === "masqueCutsom"){
+else if( $_SESSION['algorithme'] === "masqueCutsom")
 	exec('./STI '.basename($_SESSION['cheminImage']).' '.$_SESSION['algorithme'].' '.$_POST['m1'].' '.$_POST['m2'].' '.$_POST['m3'].' '.$_POST['m4'].' '.$_POST['m5'].' '.$_POST['m6'].' '.$_POST['m7'].' '.$_POST['m8'].' '.$_POST['m9'].' '.'9');
-	unlink($_SESSION['cheminImage']);
-	header('location:index.php');
-	exit();
-}
-else{
+else
 	exec('./STI '.basename($_SESSION['cheminImage']).' '.$_SESSION['algorithme']);
-	unlink($_SESSION['cheminImage']);
-	header('location:index.php');
-	exit();
-}
 
+unlink($_SESSION['cheminImage']);
+
+if (($_SESSION['algorithme'] == 'binarisation') || ($_SESSION['algorithme'] == 'detectionContoursSobel') || ($_SESSION['algorithme'] == 'detectionContoursLaplacien'))
+	$_SESSION['cheminImage'] = mb_strcut(basename($_SESSION['cheminImage']), 0, strlen(basename($_SESSION['cheminImage'])) -4) .'.pbm';
+if (($_SESSION['algorithme'] == 'niveauGris') || ($_SESSION['algorithme'] == 'laplacien') || ($_SESSION['algorithme'] == 'reductionBruit'))
+	$_SESSION['cheminImage'] = mb_strcut(basename($_SESSION['cheminImage']), 0, strlen(basename($_SESSION['cheminImage'])) -4) .'.pgm';
+
+$_SESSION['cheminImage'] = 'Images/'.$_SESSION['algorithme'].'_'.basename($_SESSION['cheminImage']);
+exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg');
+unlink($_SESSION['cheminImageJPG']);
+$_SESSION['cheminImageJPG'] = mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg';
+header('location:index.php');
 ?>

@@ -92,8 +92,11 @@ session_start();
 		<div id="CanvasImage" style="border:solid">
 			<h1>Affichage de l'image</h1>
 			<?php 
-			if(isset($_SESSION['cheminImageJPG']))
+			if(isset($_SESSION['cheminImageJPG'])){
+				echo "Chemin Image : ".$_SESSION['cheminImage'] . "<br>";				
+				echo "Chemin JPG : ".$_SESSION['cheminImageJPG'] . "<br>";
 				echo "<img src='".$_SESSION['cheminImageJPG']."' alt='".basename($_SESSION['cheminImage'])."'>";
+			}
 			else
 				echo "<p>Chargez une image</p>";
 			?>

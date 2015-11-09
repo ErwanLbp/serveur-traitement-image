@@ -6,6 +6,7 @@ if(!isset($_SESSION['pseudo']))
 	header('Location: index.php');
 
 unlink($_SESSION['cheminImageJPG']);
+unlink($_SESSION['cheminImage']);
 
 //On vide les variables de session
 $_SESSION = array(); 
