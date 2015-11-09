@@ -7,7 +7,6 @@ $_SESSION['cheminImage'] = $_FILES['photo']['name'];
 // $tailleMax = 1000000;
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
-$_SESSION['algorithme'] = $_POST['algorithme'];
 
 
 if(!in_array($extension, $extensionsPossible)){
