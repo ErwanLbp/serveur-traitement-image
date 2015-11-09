@@ -3,7 +3,7 @@
 session_start();
 
 $dossier = 'Images/';
-$_SESSION['cheminImage'] = $_FILES['photo']['name'];
+$_SESSION['cheminImage'] = $dossier.$_FILES['photo']['name'];
 // $tailleMax = 1000000;
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 

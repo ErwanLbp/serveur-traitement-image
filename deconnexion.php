@@ -5,6 +5,8 @@ session_start();
 if(!isset($_SESSION['pseudo']))
 	header('Location: index.php');
 
+unlink($_SESSION['cheminImageJPG']);
+
 //On vide les variables de session
 $_SESSION = array(); 
 
