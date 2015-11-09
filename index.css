@@ -35,7 +35,7 @@ h1{
 
 #chercherImage{
 	position: relative;	
-	margin-left: 38%; 
+	margin-left: 35%; 
 }
 
 #redimensionnement:checked ~ #redim {
@@ -52,4 +52,9 @@ h1{
 
 #masqueCustom {
 	display: none;
+}
+
+#CanvasImage{
+	position: relative;
+	margin-left: 35%;
 }

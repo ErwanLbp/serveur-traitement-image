@@ -41,6 +41,12 @@ switch ($_POST['algorithme']) {
 	case 'Reduction de bruit':
 	$_SESSION['algorithme'] = 'reductionBruit';
 	break;
+	case 'Redimensionnement':
+	$_SESSION['algorithme'] = 'redimensionnement';
+	break;
+	case 'Masque Custom':
+	$_SESSION['algorithme'] = 'masqueCutsom';
+	break;
 	default:
 	$_SESSION['algorithme'] = '';
 	break;
