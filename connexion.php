@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['pseudo']))
 	header("Location: index.php");
 	
-include('connectBDD.php');
+//include('connectBDD.php');
 
 $erreur = "";
 if(isset($_POST['pseudo'])){
