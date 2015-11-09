@@ -28,27 +28,27 @@ session_start();
 					<p>Etape 1 : Chercher la photo à transformer</p>
 					<input type="hidden" name="MAX_FILE_SIZE" value="taille">
 					<input type ="file" name ="photo" size ="taille"><br><br>
-
+					<input type ="submit" name="recuperer" value ="Recup"><br>
 				</div>
-		</form>
+			</form>
 
-		<form method="post" action="exec.php" enctype="multipart/form-data">
+			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 				<p>Etape 3 : Choisir la transformation</p>
 
 				<div id ="formulaireTransfoDeBase">
-					<input type ="submit" name ="algorithme" value ="binarisation">
-					<input type ="submit" name ="algorithme" value ="niveauGris">
-					<input type ="submit" name ="algorithme" value ="symetrieH">
-					<input type ="submit" name ="algorithme" value ="symetrieV">
-					<input type ="submit" name ="algorithme" value ="negatif">
-					<input type ="submit" name ="algorithme" value ="ameliorationContraste">
-					<input type ="submit" name ="algorithme" value ="lissage">
-					<input type ="submit" name ="algorithme" value ="laplacien">
-					<input type ="submit" name ="algorithme" value ="gradientSimple">
-					<input type ="submit" name ="algorithme" value ="gradientSobel">
-					<input type ="submit" name ="algorithme" value ="detectionContoursSobel"><br>
+					<input type ="submit" name ="algorithme" value ="Binarisation">
+					<input type ="submit" name ="algorithme" value ="Niveau de gris">
+					<input type ="submit" name ="algorithme" value ="Symetrie Horizontale">
+					<input type ="submit" name ="algorithme" value ="Symetrie Verticale">
+					<input type ="submit" name ="algorithme" value ="Negatif">
+					<input type ="submit" name ="algorithme" value ="Amelioration du contraste">
+					<input type ="submit" name ="algorithme" value ="Lissage">
+					<input type ="submit" name ="algorithme" value ="Laplacien">
+					<input type ="submit" name ="algorithme" value ="Gradient Simple">
+					<input type ="submit" name ="algorithme" value ="Gradient Sobel">
+					<input type ="submit" name ="algorithme" value ="Detection contours Laplacien"><br>
 					<input type ="submit" name ="algorithme" value ="detectionContoursLaplacien"><br>
-					<input type ="submit" name ="algorithme" value ="reductionBruit"><br>
+					<input type ="submit" name ="algorithme" value ="Reduction de bruit"><br>
 				</div>
 
 				<div id ="formulaireTransfoRedim">
@@ -88,7 +88,13 @@ session_start();
 			</form>
 		</fieldset>
 
-	</article>
+
+		<div id="CanvasImage" style="border:solid">
+			<h1>Affichage de l'image</h1>
+
+		</div>
+
+	</article> 
 
 	<?php include('footer.php'); ?>
 </body>

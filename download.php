@@ -3,14 +3,13 @@
 session_start();
 
 if (($_SESSION['algorithme'] == 'binarisation') || ($_SESSION['algorithme'] == 'detectionContoursSobel') || ($_SESSION['algorithme'] == 'detectionContoursLaplacien')) {
-	$_SESSION['nomImage'] = mb_strcut($_SESSION['nomImage'], 0, strlen($_SESSION['nomImage'])-4).'.pbm';
+	$_SESSION['cheminImage'] = mb_strcut(basename($_SESSION['cheminImage']), 0, strlen(basename($_SESSION['cheminImage'])) -4) .'.pbm';
 }
 if (($_SESSION['algorithme'] == 'niveauGris') || ($_SESSION['algorithme'] == 'laplacien') || ($_SESSION['algorithme'] == 'reductionBruit')) {
-	$_SESSION['nomImage'] = mb_strcut($_SESSION['nomImage'], 0, strlen($_SESSION['nomImage'])-4).'.pgm';
+	$_SESSION['cheminImage'] = mb_strcut(basename($_SESSION['cheminImage']), 0, strlen(basename($_SESSION['cheminImage'])) -4) .'.pgm';
 }
 
-$nom='./Images/'.$_SESSION['algorithme'].'_'.$_SESSION['nomImage'];
-
+$nom='./Images/'.$_SESSION['algorithme'].'_'.basename($_SESSION['cheminImage']);
 
 if(file_exists($nom)){
 	$fichier=basename($nom);
