@@ -35,9 +35,7 @@
 
 	<!-- On met deux liens, pour nous contacter ou voir l'équipe de développement -->
 	<div class="droite">
-		<p>
-			<a href="nousContacter.php">Nous contacter </a></li> | <a href="equipe.php">Equipe </a></li>
-		</p>
+
 	</div>
 	
 </footer>

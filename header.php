@@ -1,9 +1,9 @@
 <header>
 
-	<div class="gauche"></div>
+	<div class="gauche"><a href="index.php"><img src="accueil.jpg" alt="Accueil"></a></div>
 	
 	<!-- Notre super logo -->
-	<div class="centre"><a href="index.php">Serveur de traitement d'image</a></div>
+	<div class="centre"></div>
 	
 	<div class="droite">
 		
