@@ -19,6 +19,7 @@ include('connectBDD.php');
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
+	<script type="text/javascript" src="fonctions.js"></script>
 </head>
 
 <body>
@@ -27,10 +28,10 @@ include('connectBDD.php');
 	<article>
 		<fieldset>
 
-			<!-- <div id="grandeDivGauche"> -->
+			<div id="grandeDivGauche" class ="alignement">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
-					<div id ="formulaireTransfoDeBase">
+					<div class ="formulaireTransfoDeBase">
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation">
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris">
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale">
@@ -38,44 +39,12 @@ include('connectBDD.php');
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Negatif">
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste">
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"><br>
 					</div>
-
-					<div id ="formulaireTransfoRedim">
-						<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick="getElementById('redim').style.display='block'"><br><br>
-						<div id="redim">
-							Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
-							Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
-							Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"><br>
-							Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"><br><br>
-						</div>
-					</div>
-
-					<div id ="formulaireTransfoCustom">
-						<input id="masque" type ="button" name ="algorithme" value ="Masque Custom" onclick="getElementById('masqueCustom').style.display='block'"><br><br>
-						<div id="masqueCustom">
-							<p>Remplir la matrice suivante : </p>
-							<input class="champNombre" type ="number" name ="m1" value ="0">
-							<input class="champNombre" type ="number" name ="m2" value ="0">
-							<input class="champNombre" type ="number" name ="m3" value ="0"><br>
-							<input class="champNombre" type ="number" name ="m4" value ="0">
-							<input class="champNombre" type ="number" name ="m5" value ="0">
-							<input class="champNombre" type ="number" name ="m6" value ="0"><br>
-							<input class="champNombre" type ="number" name ="m7" value ="0">
-							<input class="champNombre" type ="number" name ="m8" value ="0">
-							<input class="champNombre" type ="number" name ="m9" value ="0"><br><br>
-						</div>
-					</div>
-
 				</form>
-			<!-- </div> -->
+			</div>
 
-			<div id="grandeDivDroite">
+
+			<div id="grandeDivCentrale" class ="alignement">
 				<form method="post" action="reset.php">
 					<div id="reset">
 						<input type="submit" name="reset" value="Reset">
@@ -96,17 +65,60 @@ include('connectBDD.php');
 					?>
 				</div>
 			</div>
-		</fieldset>
+
+			<div id="grandeDivDroite" class ="alignement">
+				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
+					<div class ="formulaireTransfoDeBase">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"><br>
+					</div>
+				</form>
+
+				<div id ="formulaireTransfoRedim">
+					<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacher('redim')><br><br>
+					<div id="redim">
+						Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
+						Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
+						Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"><br>
+						Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"><br><br>
+					</div>
+				</div>
+
+				<div id ="formulaireTransfoCustom">
+					<input id="masque" type ="button" name ="algorithme" value ="Masque Custom" onclick=afficherCacher('masqueCustom')><br><br>
+					<div id="masqueCustom">
+						<p>Remplir la matrice suivante : </p>
+						<input class="champNombre" type ="number" name ="m1" value ="0">
+						<input class="champNombre" type ="number" name ="m2" value ="0">
+						<input class="champNombre" type ="number" name ="m3" value ="0"><br>
+						<input class="champNombre" type ="number" name ="m4" value ="0">
+						<input class="champNombre" type ="number" name ="m5" value ="0">
+						<input class="champNombre" type ="number" name ="m6" value ="0"><br>
+						<input class="champNombre" type ="number" name ="m7" value ="0">
+						<input class="champNombre" type ="number" name ="m8" value ="0">
+						<input class="champNombre" type ="number" name ="m9" value ="0"><br><br>
+					</div>
+				</div>
+			</div>
+
+		</form>
+		<!-- </div> -->
+
+	</fieldset>
 
 
-		<fieldset id="download">
-			<form method="post" action="download.php" enctype="multipart/form-data">
-				<p>Etape 4 : Récupérer la photo transformée</p>
-				<input type="submit" name="recuperer" value="Récupérer l'image">
-			</form>
-		</fieldset>
-	</article> 
+	<fieldset id="download">
+		<form method="post" action="download.php" enctype="multipart/form-data">
+			<p>Etape 4 : Récupérer la photo transformée</p>
+			<input type="submit" name="recuperer" value="Récupérer l'image">
+		</form>
+	</fieldset>
+</article> 
 
-	<?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
 </body>
 </html>

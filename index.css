@@ -1,18 +1,19 @@
-h1{
-	position: relative;
-	margin-left: 35%;
+.alignement{
+	display : inline-block;
+	width :600px;
+	height: 500px;
+	float:left;
 }
 
 #grandeDivGauche{
-	display: block;
-	width: 100%;
+	border-style : solid;
+}
+
+#grandeDivCentrale{
 	border-style : solid;
 }
 
 #grandeDivDroite{
-	margin-top: 15%;
-	display: block;
-	width: 100%;
 	border-style : solid;
 }
 
@@ -21,9 +22,17 @@ h1{
 	border-style : solid;
 }
 
+#redim{
+	display: none;
+}
+
 #formulaireTransfoCustom{
 	float: left;
 	border-style : solid;
+}
+
+#masqueCustom{
+	display: none;
 }
 
 #CanvasImage{
@@ -45,22 +54,6 @@ h1{
 
 .champNombre{
 	width: 15%;
-}
-
-#redimensionnement:checked ~ #redim {
-	display: block;
-}
-
-#redim {
-	display: none;
-}
-
-#masque:checked ~ #masqueCustom {
-	display: block;
-}
-
-#masqueCustom {
-	display: none;
 }
 
 .buttonSubmit {
