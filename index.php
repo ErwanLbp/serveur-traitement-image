@@ -80,7 +80,7 @@ include('connectBDD.php');
 				</form>
 
 				<div id ="formulaireTransfoRedim" >
-					<input type ="button" class="buttonSubmit" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacher('redim','formulaireTransfoCustom')><br><br>
+					<input type ="button" class="buttonSubmit" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacherRedimCustom('redim','formulaireTransfoCustom')><br><br>
 					<div id="redim">
 						Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
 						Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
@@ -90,7 +90,7 @@ include('connectBDD.php');
 				</div>
 
 				<div id ="formulaireTransfoCustom">
-					<input id="masque" type ="button" class="buttonSubmit" name ="algorithme" value ="Masque Custom" onclick=afficherCacher('masqueCustom','formulaireTransfoRedim')><br><br>
+					<input id="masque" type ="button" class="buttonSubmit" name ="algorithme" value ="Masque Custom" onclick=afficherCacherRedimCustom('masqueCustom','formulaireTransfoRedim')><br><br>
 					<div id="masqueCustom">
 						<p>Remplir la matrice suivante : </p>
 						<input class="champNombre" type ="number" name ="m1" value ="0">
