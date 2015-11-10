@@ -31,19 +31,19 @@ include('connectBDD.php');
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
 					<div id ="formulaireTransfoDeBase">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Binarisation">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Niveau de gris">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Symetrie Horizontale">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Symetrie Verticale">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Negatif">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Amelioration du contraste">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Lissage">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Laplacien">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Gradient Simple">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Gradient Sobel">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Detection contours Sobel"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Detection contours Laplacien"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Reduction de bruit"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Negatif">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel">
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"><br>
 					</div>
 
 					<div id ="formulaireTransfoRedim">

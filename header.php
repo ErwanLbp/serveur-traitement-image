@@ -1,6 +1,6 @@
 <header>
 
-	<div class="gauche"><a href="index.php"><img src="accueil.jpg" alt="Accueil"></a></div>
+	<div class="gauche"><a href="index.php"><img src="ImagesHTML/accueil.jpg" alt="Accueil"></a></div>
 	
 	<!-- Notre super logo -->
 	<div class="centre"></div>

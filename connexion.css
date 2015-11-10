@@ -31,7 +31,7 @@
 }
  
 .i-small {
-	background:url("./Ananas.jpg") repeat;
+	background:url("./ImagesHTML/Ananas.jpg") repeat;
 	padding-right: 200px;
 	-webkit-animation: dropFlowParticles 27s linear infinite;
 	     -o-animation: dropFlowParticles 27s linear infinite;
