@@ -3,7 +3,6 @@
 	border-radius: 50%;
 
 	width: 30%;
-	margin-top: 15%;
 	margin-left: 35%;
 	text-align: center;
 	color : #E1E6FA;
@@ -31,6 +30,7 @@
 }
  
 .i-small {
+	opacity: 0.5;
 	background:url("./ImagesHTML/Ananas.jpg") repeat;
 	padding-right: 200px;
 	-webkit-animation: dropFlowParticles 27s linear infinite;
