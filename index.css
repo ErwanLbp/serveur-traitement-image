@@ -10,20 +10,19 @@ h1{
 }
 
 #grandeDivDroite{
+	margin-top: 15%;
 	display: block;
 	width: 100%;
 	border-style : solid;
 }
 
 #formulaireTransfoRedim{
-	display: block;
 	float: left;
 	border-style : solid;
 }
 
 #formulaireTransfoCustom{
-	display: block;
-	float: right;
+	float: left;
 	border-style : solid;
 }
 

@@ -26,8 +26,8 @@ include('connectBDD.php');
 
 	<article>
 		<fieldset>
-	
-			<div id="grandeDivGauche">
+
+			<!-- <div id="grandeDivGauche"> -->
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
 					<div id ="formulaireTransfoDeBase">
@@ -47,7 +47,7 @@ include('connectBDD.php');
 					</div>
 
 					<div id ="formulaireTransfoRedim">
-						<input type ="radio" id="redimensionnement" name ="algorithme" value ="redimensionnement">Redimensionnement</option><br><br>
+						<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick="getElementById('redim').style.display='block'"><br><br>
 						<div id="redim">
 							Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
 							Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
@@ -57,7 +57,7 @@ include('connectBDD.php');
 					</div>
 
 					<div id ="formulaireTransfoCustom">
-						<input id="masque" type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
+						<input id="masque" type ="button" name ="algorithme" value ="Masque Custom" onclick="getElementById('masqueCustom').style.display='block'"><br><br>
 						<div id="masqueCustom">
 							<p>Remplir la matrice suivante : </p>
 							<input class="champNombre" type ="number" name ="m1" value ="0">
@@ -73,7 +73,7 @@ include('connectBDD.php');
 					</div>
 
 				</form>
-			</div>
+			<!-- </div> -->
 
 			<div id="grandeDivDroite">
 				<form method="post" action="reset.php">
