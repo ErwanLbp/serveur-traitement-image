@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2015 at 10:57 
+-- Generation Time: Nov 10, 2015 at 09:25 
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -36,7 +36,7 @@ CREATE TABLE `connectes` (
 --
 
 INSERT INTO `connectes` (`ip`, `timestamp`) VALUES
-('127.0.0.1', 1446630871);
+('127.0.0.1', 1447142589);
 
 -- --------------------------------------------------------
 
@@ -55,7 +55,23 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
-(1, 'Erwan', 'azerty');
+(1, 'Erwan', 'azerty'),
+(2, 'admin', 'a1z2e3r4t5y6');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transformations`
+--
+
+CREATE TABLE `transformations` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL DEFAULT '',
+  `auteur` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `dateCreation` date NOT NULL,
+  `chemin` varchar(255) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -68,6 +84,13 @@ ALTER TABLE `profil`
   ADD PRIMARY KEY (`idProfil`);
 
 --
+-- Indexes for table `transformations`
+--
+ALTER TABLE `transformations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `auteur` (`auteur`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -75,7 +98,22 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `transformations`
+--
+ALTER TABLE `transformations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transformations`
+--
+ALTER TABLE `transformations`
+  ADD CONSTRAINT `transformations_ibfk_1` FOREIGN KEY (`auteur`) REFERENCES `profil` (`idProfil`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
