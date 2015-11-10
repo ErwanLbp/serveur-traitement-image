@@ -29,7 +29,7 @@ if(isset($_POST['pseudo'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion</title>
+	<title>Inscription</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
@@ -48,14 +48,12 @@ if(isset($_POST['pseudo'])){
 
 			<p>Remplissez tous les champs :</p>
 
-			<label>Pseudo<br><br>
-				<input type="text" id="pseudo" name="pseudo"/>
+			<label>Pseudo :	<input type="text" id="pseudo" name="pseudo"/>
 			</label>
 
 			<br><br>
 
-			<label>Mot de passe<br><br>
-				<input type="password" id="mdp" name="mdp"/>
+			<label>Mot de passe : <input type="password" id="mdp" name="mdp"/>
 			</label>
 			
 			<br><br><br>
