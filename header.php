@@ -19,8 +19,8 @@
 			//Un bouton si c'est un admin, comme ca il accede à la page admin
 				echo '<input type="button"  class="bouton" onclick="document.location.href=\'admin.php\'" value="Admin">';
 
+			echo "<input type='button' value='deconnexion' onclick='document.location.href=\"deconnexion.php\"''>";
 		}
-		echo "<input type='button' value='deconnexion' onclick='document.location.href=\"deconnexion.php\"''>";
 
 		?>
 	</div>

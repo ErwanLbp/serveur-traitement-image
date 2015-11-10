@@ -30,18 +30,6 @@
 	top: 0; right: 0; bottom: 0; left: 0;
 }
  
-/*.i-large {
-	background: url("./Ananas1.jpg") repeat 0px 0px;
-	-webkit-animation: dropFlowParticles 2s linear infinite;
-	     -o-animation: dropFlowParticles 2s linear infinite;
-	        animation: dropFlowParticles 2s linear infinite;
-}
-.i-medium {
-	background: url("./Ananas1.jpg") repeat 0px 0px;
-	-webkit-animation: dropFlowParticles 12s linear infinite;
-	     -o-animation: dropFlowParticles 12s linear infinite;
-	        animation: dropFlowParticles 12s linear infinite;
-}*/
 .i-small {
 	background:url("./Ananas.jpg") repeat;
 	padding-right: 200px;
