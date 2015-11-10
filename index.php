@@ -65,7 +65,7 @@ include('connectBDD.php');
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Detection contours Laplacien"><br>
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Reduction de bruit"><br>
 				</div>
-
+ 
 				<div id ="formulaireTransfoRedim">
 					<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick="getElementById('redim').style.display='block'"><br><br>
 					<div id="redim">
