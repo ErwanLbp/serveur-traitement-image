@@ -31,14 +31,14 @@ include('connectBDD.php');
 			<div id="grandeDivGauche" class ="alignement">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
-					<div class ="formulaireTransfoDeBase">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Negatif">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage">
+					<div class ="formulaireTransfoDeBase"><br>
+					<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Negatif"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"><br><br>
 					</div>
 				</form>
 			</div>
@@ -68,18 +68,18 @@ include('connectBDD.php');
 
 			<div id="grandeDivDroite" class ="alignement">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-					<div class ="formulaireTransfoDeBase">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel">
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"><br>
+					<div class ="formulaireTransfoDeBase" id="transfoDroite"><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br><br>
+						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"><br><br>
 					</div>
 				</form>
 
-				<div id ="formulaireTransfoRedim">
-					<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacher('redim')><br><br>
+				<div id ="formulaireTransfoRedim" >
+					<input type ="button" class="buttonSubmit" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacher('redim','formulaireTransfoCustom')><br><br>
 					<div id="redim">
 						Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
 						Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
@@ -89,7 +89,7 @@ include('connectBDD.php');
 				</div>
 
 				<div id ="formulaireTransfoCustom">
-					<input id="masque" type ="button" name ="algorithme" value ="Masque Custom" onclick=afficherCacher('masqueCustom')><br><br>
+					<input id="masque" type ="button" class="buttonSubmit" name ="algorithme" value ="Masque Custom" onclick=afficherCacher('masqueCustom','formulaireTransfoRedim')><br><br>
 					<div id="masqueCustom">
 						<p>Remplir la matrice suivante : </p>
 						<input class="champNombre" type ="number" name ="m1" value ="0">
