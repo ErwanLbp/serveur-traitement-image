@@ -5,6 +5,8 @@ session_start();
 if(!isset($_SESSION['pseudo']))
 	header("Location: connexion.php");
 
+include('connectBDD.php');
+
 ?> 
 
 
@@ -44,7 +46,7 @@ if(!isset($_SESSION['pseudo']))
 
 			</div>
 		</form>
-		
+
 		<div id="grandeDivGauche">
 			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
