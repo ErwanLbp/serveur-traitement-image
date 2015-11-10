@@ -3,21 +3,34 @@ h1{
 	margin-left: 35%;
 }
 
-#formulaireTransfoDeBase{
+#grandeDivGauche{
 	float: left;
-	border-style : solid;
-	width : 21%;
-	height : 300px; 
+	width: 50%;
 }
 
+#grandDivDroite{
+	float: right;
+	width: 50%;
+}
+
+/*#formulaireTransfoDeBase{
+	float: left;
+	border-style : solid;
+	width : 50%;
+	height : 300px; 
+}*/
+
 #formulaireTransfoRedim{
+	display: block;
 	float: left;
 	border-style : solid;
 	width : 21%;
 	height : 300px;
+	z-index: -1;
 }
 
 #formulaireTransfoCustom{
+	display: block;
 	float: left;
 	border-style : solid;
 	width : 21%;
@@ -31,11 +44,6 @@ h1{
 
 .champNombre{
 	width: 15%;
-}
-
-#chercherImage{
-	position: relative;	
-	margin-left: 35%; 
 }
 
 #redimensionnement:checked ~ #redim {
@@ -55,6 +63,30 @@ h1{
 }
 
 #CanvasImage{
-	position: relative;
-	margin-left: 35%;
+	float: right;
+	margin-right: 10%;
+}
+
+#chercherImage{
+	margin-left: 72%;
+}
+
+.buttonSubmit {
+    position: relative;
+    float: left;
+    border-radius: 15% 15% 15% 15%;
+    font-family: 'Times New Roman', cursive;
+    font-size: 150%;
+    color: #FFF; 
+    background-color: #3498DB;
+    border-bottom: 5% solid #2980B9;
+    /* Animation */
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+.buttonSubmit:active {
+    transform: translate(0%,5%);
+    -webkit-transform: translate(0%,5%);
+    border-bottom: 1% solid;
 }
