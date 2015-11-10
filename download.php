@@ -14,10 +14,6 @@ if(file_exists($_SESSION['cheminImage'])){
 	header('Content-Length: '. filesize($_SESSION['cheminImage']));
 	ob_clean();
 	readfile($_SESSION['cheminImage']);
-	unlink($_SESSION['cheminImage']);
-	session_destroy();
-	exit();
-
 }
 else
 	echo basename($_SESSION['cheminImage']);
