@@ -4,40 +4,38 @@ h1{
 }
 
 #grandeDivGauche{
-	float: left;
-	width: 50%;
+	display: block;
+	width: 100%;
 	border-style : solid;
 }
 
 #grandeDivDroite{
-	float: right;
-	width: 50%;
+	margin-top: 15%;
+	display: block;
+	width: 100%;
 	border-style : solid;
 }
 
 #formulaireTransfoRedim{
-	display: block;
 	float: left;
 	border-style : solid;
-	width : 21%;
-	height : 300px;
-	z-index: -1;
 }
 
 #formulaireTransfoCustom{
-	display: block;
 	float: left;
 	border-style : solid;
-	width : 21%;
-	height : 300px;
 }
 
 #CanvasImage{
-	margin-left: 24%;
+	text-align: center;
 }
 
 #chercherImage{
 	margin-left: 45%;
+}
+
+#reset{
+	float: right;
 }
 
 #download{
