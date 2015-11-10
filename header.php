@@ -6,7 +6,7 @@
 	<div class="centre"><a href="index.php">Serveur de traitement d'image</a></div>
 	
 	<div class="droite">
-	
+		
 		<?php 
 		// Si il est connecté on affiche son petit nom et son abonnement, et si c'est un admin on le met dans un bouton
 		if (isset($_SESSION['pseudo'])) {
