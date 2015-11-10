@@ -1,34 +1,34 @@
 .alignement{
 	display : inline-block;
-	width :600px;
 	height: 500px;
 	float:left;
 }
 
 #grandeDivGauche{
 	border-style : solid;
+	width:20%;
 }
 
 #grandeDivCentrale{
 	border-style : solid;
+	width: 60%;
 }
 
 #grandeDivDroite{
 	border-style : solid;
+	width : 20%;
 }
 
-#formulaireTransfoRedim{
-	float: left;
-	border-style : solid;
+.formulaireTransfoDeBase,#formulaireTransfoRedim,#formulaireTransfoCustom{
+	text-align : center;
 }
 
 #redim{
 	display: none;
 }
 
-#formulaireTransfoCustom{
-	float: left;
-	border-style : solid;
+#transfoDroite{
+	display: block;
 }
 
 #masqueCustom{
@@ -58,7 +58,7 @@
 
 .buttonSubmit {
     position: relative;
-    float: left;
+    float: center;
     border-radius: 15% 15% 15% 15%;
     font-family: 'Times New Roman', cursive;
     font-size: 150%;
@@ -74,4 +74,8 @@
     transform: translate(0%,5%);
     -webkit-transform: translate(0%,5%);
     border-bottom: 1% solid;
+}
+
+.buttonSubmit:focus{
+	background-color: #212BE4;
 }
