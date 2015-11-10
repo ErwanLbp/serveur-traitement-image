@@ -45,23 +45,24 @@ include('connectBDD.php');
 
 
 			<div id="grandeDivCentrale" class ="alignement">
-				<form method="post" action="reset.php">
-					<div id="reset">
-						<input type="submit" name="reset" value="Reset">
-					</div>
-				</form>
+				<div id="reset">
+					<input type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'">
+				</div>
 
-				<form method="post" action="upload.php" enctype="multipart/form-data">
-					<div id="chercherImage">
+				<div id="chercherImage">
+					<form method="post" action="upload.php" enctype="multipart/form-data">
 						<input type="hidden" name="MAX_FILE_SIZE" value="taille">
 						<input type ="file" name ="photo" size ="taille" onchange="this.form.submit()"><br><br>
-					</div>
-				</form>
+					</form>
+				</div>
 
 				<div id="CanvasImage">
+					<script type="text/javascript"></script>
 					<?php 
-					if(isset($_SESSION['cheminImageJPG']))
+					if(isset($_SESSION['cheminImageJPG'])){
+						echo "<script type='text/javascript'>afficherCacher('chercherImage');</script>";
 						echo "<img src='".$_SESSION['cheminImageJPG']."' alt='".basename($_SESSION['cheminImage'])."'>";
+					}
 					?>
 				</div>
 			</div>
@@ -105,20 +106,19 @@ include('connectBDD.php');
 				</div>
 			</div>
 
-		</form>
-		<!-- </div> -->
+		</fieldset>
 
-	</fieldset>
+		<fieldset>
+			<input type="button" name="recuperer" value="Récupérer" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'"><br>
+			<input type="button" name="sauvegarder" value="Sauvegarder" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>
+			<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
+				<label>Renommer l'image: <input type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+				</label>
+				<input type="submit" value="OK!">
+			</form>
+		</fieldset>
+	</article> 
 
-
-	<fieldset id="download">
-		<form method="post" action="download.php" enctype="multipart/form-data">
-			<p>Etape 4 : Récupérer la photo transformée</p>
-			<input type="submit" name="recuperer" value="Récupérer l'image">
-		</form>
-	</fieldset>
-</article> 
-
-<?php include('footer.php'); ?>
+	<?php include('footer.php'); ?>
 </body>
 </html>

@@ -2,6 +2,10 @@
 
 session_start();
 
+if(!isset($_SESSION['pseudo']) || !isset($_SESSION['cheminImage']))
+	header('Location: index.php');
+
+
 if(file_exists($_SESSION['cheminImage'])){
 	$fichier=basename($_SESSION['cheminImage']);
 
