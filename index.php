@@ -61,13 +61,13 @@ include('connectBDD.php');
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Laplacien">
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Gradient Simple">
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Gradient Sobel">
+					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Detection contours Sobel"><br>
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Detection contours Laplacien"><br>
-					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="detectionContoursLaplacien"><br>
 					<input class="buttonSubmit" type ="submit" name ="algorithme" value ="Reduction de bruit"><br>
 				</div>
 
 				<div id ="formulaireTransfoRedim">
-					<input type ="radio" id="redimensionnement" name ="algorithme" value ="redimensionnement">Redimensionnement</option><br><br>
+					<input type ="button" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick="getElementById('redim').style.display='block'"><br><br>
 					<div id="redim">
 						Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"><br>
 						Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"><br><br>
@@ -77,7 +77,7 @@ include('connectBDD.php');
 				</div>
 
 				<div id ="formulaireTransfoCustom">
-					<input id="masque" type ="radio" name ="algorithme" value ="masqueCustom">Masque Custom</option><br><br>
+					<input type ="button" id="masque" name ="algorithme" value ="Masque Custom" onclick="getElementById('masqueCustom').style.display='block'"><br><br>
 					<div id="masqueCustom">
 						<p>Remplir la matrice suivante : </p>
 						<input class="champNombre" type ="number" name ="m1" value ="0">

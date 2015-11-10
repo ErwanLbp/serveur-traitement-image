@@ -65,7 +65,9 @@ if(isset($_POST['pseudo'])){
 			
 			<br><br><br>
 
-			<input type="submit" class="bouton" value="Connexion"></input>
+			<input type="submit" class="bouton" value="Connexion">
+			<input type="button" class="bouton" value="Inscription" onclick="document.location.href='inscription.php'">
+
 			<br><br>
 	</form>
 	</article>
