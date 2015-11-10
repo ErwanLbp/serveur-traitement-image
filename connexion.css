@@ -36,7 +36,6 @@
 	-webkit-animation: dropFlowParticles 27s linear infinite;
 	     -o-animation: dropFlowParticles 27s linear infinite;
 	        animation: dropFlowParticles 27s linear infinite;
-	        /*animation-direction: reverse;*/
 }
  
 @-webkit-keyframes dropFlowParticles {
