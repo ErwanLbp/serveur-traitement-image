@@ -36,8 +36,16 @@ if(isset($_POST['pseudo'])){
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
+	<link rel="stylesheet" type="text/css" href="connexion.css">
 </head>
 <body>
+	<div class="illustration">
+		<div class="i-large"></div>
+		<div class="i-medium"></div>
+		<div class="i-small"></div>
+	</div>
+
+
 	<?php include ('header.php'); ?>
 
 	<article>
@@ -48,19 +56,19 @@ if(isset($_POST['pseudo'])){
 				<br><br>
 				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
 
-				<p>Remplissez tous les champs :</p>
+				<p>Remplissez tous les champs </p><br>
 
-				<label>Pseudo :	<input type="text" id="pseudo" name="pseudo"/>
+				<label>Pseudo <input type="text" id="pseudo" name="pseudo"/>
 				</label>
 
 				<br><br>
 
-				<label>Mot de passe : <input type="password" id="mdp" name="mdp"/>
+				<label>Mot de passe <input type="password" id="mdp" name="mdp"/>
 				</label>
 
 				<br><br><br>
 
-				<input type="submit" class="bouton" value="Connexion"></input>
+				<input type="submit" class="bouton" value="Inscription"></input>
 				<br><br>
 			</fieldset>
 		</form>
