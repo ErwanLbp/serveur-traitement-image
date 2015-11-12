@@ -28,16 +28,16 @@
 	position : absolute;
 	top: 0; right: 0; bottom: 0; left: 0;
 }
- 
+
 .i-small {
 	opacity: 0.5;
 	background:url("./ImagesHTML/Ananas.jpg") repeat;
 	padding-right: 200px;
 	-webkit-animation: dropFlowParticles 27s linear infinite;
-	     -o-animation: dropFlowParticles 27s linear infinite;
-	        animation: dropFlowParticles 27s linear infinite;
+	-o-animation: dropFlowParticles 27s linear infinite;
+	animation: dropFlowParticles 27s linear infinite;
 }
- 
+
 @-webkit-keyframes dropFlowParticles {
 	from { background-position: 0 0; }
 	to { background-position: 0 413px; }

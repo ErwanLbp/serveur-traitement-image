@@ -1,9 +1,11 @@
 <?php 
 session_start();
 
-if(isset($_SESSION['pseudo']))
+if(isset($_SESSION['pseudo'])){
 	header("Location: index.php");
-	
+	exit();
+}
+
 include('connectBDD.php');
 
 $erreur = "";
@@ -40,29 +42,30 @@ if(isset($_POST['pseudo'])){
 
 	<article>
 
-	<form method="post" action="inscription.php">
-		<fieldset id="formulaireInscription">
+		<form method="post" action="inscription.php">
+			<fieldset id="formulaireInscription">
 
-			<br><br>
-			<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
+				<br><br>
+				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
 
-			<p>Remplissez tous les champs :</p>
+				<p>Remplissez tous les champs :</p>
 
-			<label>Pseudo :	<input type="text" id="pseudo" name="pseudo"/>
-			</label>
+				<label>Pseudo :	<input type="text" id="pseudo" name="pseudo"/>
+				</label>
 
-			<br><br>
+				<br><br>
 
-			<label>Mot de passe : <input type="password" id="mdp" name="mdp"/>
-			</label>
-			
-			<br><br><br>
+				<label>Mot de passe : <input type="password" id="mdp" name="mdp"/>
+				</label>
 
-			<input type="submit" class="bouton" value="Connexion"></input>
-			<br><br>
-	</form>
+				<br><br><br>
+
+				<input type="submit" class="bouton" value="Connexion"></input>
+				<br><br>
+			</fieldset>
+		</form>
 	</article>
 
-		<?php include('footer.php'); ?>
-	</body>
-	</html>
+	<?php include('footer.php'); ?>
+</body>
+</html>

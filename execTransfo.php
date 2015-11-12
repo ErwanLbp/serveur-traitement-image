@@ -1,12 +1,15 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['pseudo']))
+if(!isset($_SESSION['pseudo'])){
 	header("Location: index.php");
+	exit();
+}
 
-if(!isset($_SESSION['cheminImage']))
+if(!isset($_SESSION['cheminImage'])){
 	header('Location: index.php');
-
+	exit();
+}
 
 switch ($_POST['algorithme']) {
 	case 'Binarisation':

@@ -1,9 +1,11 @@
 <?php 
 session_start();
 
-if(isset($_SESSION['pseudo']))
+if(isset($_SESSION['pseudo'])){
 	header("Location: index.php");
-	
+	exit();
+}
+
 include('connectBDD.php');
 
 $erreur = "";
@@ -37,41 +39,42 @@ if(isset($_POST['pseudo'])){
 <body>
 
 	<div class="illustration">
-	<div class="i-large"></div>
-	<div class="i-medium"></div>
-	<div class="i-small"></div>
-</div>
+		<div class="i-large"></div>
+		<div class="i-medium"></div>
+		<div class="i-small"></div>
+	</div>
 
 	<?php include ('header.php'); ?>
 
 	<article>
 
-	<form method="post" action="connexion.php">
-		<fieldset id="formulaireConnexion">
+		<form method="post" action="connexion.php">
+			<fieldset id="formulaireConnexion">
 
-			<br><br>
-			<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
+				<br><br>
+				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
 
 
-			<label>Pseudo<br><br>
-				<input type="text" id="pseudo" name="pseudo"/>
-			</label>
+				<label>Pseudo<br><br>
+					<input type="text" id="pseudo" name="pseudo"/>
+				</label>
 
-			<br><br>
+				<br><br>
 
-			<label>Mot de passe<br><br>
-				<input type="password" id="mdp" name="mdp"/>
-			</label>
-			
-			<br><br><br>
+				<label>Mot de passe<br><br>
+					<input type="password" id="mdp" name="mdp"/>
+				</label>
 
-			<input type="submit" class="bouton" value="Connexion">
-			<input type="button" class="bouton" value="Inscription" onclick="document.location.href='inscription.php'">
+				<br><br><br>
 
-			<br><br>
-	</form>
+				<input type="submit" class="bouton" value="Connexion">
+				<input type="button" class="bouton" value="Inscription" onclick="document.location.href='inscription.php'">
+
+				<br><br>
+			</fieldset>
+		</form>
 	</article>
 
-		<?php include('footer.php'); ?>
-	</body>
-	</html>
+	<?php include('footer.php'); ?>
+</body>
+</html>
