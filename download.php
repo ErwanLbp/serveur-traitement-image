@@ -2,7 +2,10 @@
 
 session_start();
 
-if(!isset($_SESSION['pseudo']) || !isset($_SESSION['cheminImage']))
+if(!isset($_SESSION['pseudo']))
+	header("Location: index.php");
+
+if(!isset($_SESSION['cheminImage']))
 	header('Location: index.php');
 
 

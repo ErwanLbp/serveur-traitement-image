@@ -32,13 +32,14 @@ include('connectBDD.php');
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 
 					<div class ="formulaireTransfoDeBase"><br>
-					<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Negatif"><br><br>
+					<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Négatif" value ="Negatif"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"><br><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"><br><br>
+						<?php if(isset($_SESSION['cheminImage'])) echo $_SESSION['cheminImage']; else echo "Rien";?>
 					</div>
 				</form>
 			</div>

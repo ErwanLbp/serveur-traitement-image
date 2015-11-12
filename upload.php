@@ -2,6 +2,12 @@
 
 session_start();
 
+if(!isset($_SESSION['pseudo']))
+	header("Location: index.php");
+
+if(!isset($_SESSION['cheminImage']))
+	header('Location: index.php');
+
 $dossier = 'Images/';
 $_SESSION['cheminImage'] = $dossier.$_FILES['photo']['name'];
 // $tailleMax = 1000000;
