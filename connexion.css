@@ -1,3 +1,14 @@
+#formulaireInscription{	
+	background-color: #0000FF;
+	border-radius: 50%;
+
+	width: 30%;
+	margin-left: 35%;
+	text-align: center;
+	color : #E1E6FA;
+	font-weight     : bold;
+}
+
 #formulaireConnexion{
 	background-color: #375D81;
 	border-radius: 50%;
