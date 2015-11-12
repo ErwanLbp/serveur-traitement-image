@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 10, 2015 at 09:25 
+-- Generation Time: Nov 12, 2015 at 09:38 
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -36,7 +36,7 @@ CREATE TABLE `connectes` (
 --
 
 INSERT INTO `connectes` (`ip`, `timestamp`) VALUES
-('127.0.0.1', 1447142589);
+('127.0.0.1', 1447316736);
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,11 @@ CREATE TABLE `profil` (
 
 INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
 (1, 'Erwan', 'azerty'),
-(2, 'admin', 'a1z2e3r4t5y6');
+(2, 'admin', 'a1z2e3r4t5y6'),
+(3, 'Bob', '14753'),
+(4, 'Alex', '1234'),
+(5, 'Jean', 'bite'),
+(6, 'Anais', 'mdp');
 
 -- --------------------------------------------------------
 
@@ -98,7 +102,7 @@ ALTER TABLE `transformations`
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `transformations`
 --
