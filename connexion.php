@@ -58,15 +58,16 @@ if(isset($_POST['pseudo'])){
 					</div>
 
 					<div class="row">
-						<label for="mdp" class="col-lg-offset-4 col-lg-4">Mot de passe</label>
+						<label for="mdp" class="col-lg-offset-4 col-lg-4"><br>Mot de passe</label>
 					</div>
 					<div class="row">
 						<input class="col-lg-offset-3 col-lg-6" type="password" id="mdp" name="mdp"/>
 					</div>
 
 					<div class="row">
-						<input type="submit" class="bouton col-lg-offset-2 col-lg-3" value="Connexion">
-						<input type="button" class="bouton col-lg-offset-2 col-lg-3" value="Inscription" onclick="document.location.href='inscription.php'">
+					<br>
+						<input type="submit" class="bouton col-lg-offset-3 col-lg-3" value="Connexion">
+						<input type="button" class="bouton col-lg-3" value="Inscription" onclick="document.location.href='inscription.php'">
 					</div>
 				</fieldset>
 			</form>
