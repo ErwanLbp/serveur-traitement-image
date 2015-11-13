@@ -1,23 +1,5 @@
 .alignement{
-	display : inline-block;
 	height: 500px;
-	float:left;
-}
-
-#grandeDivGauche{
-	width:20%;
-}
-
-#grandeDivCentrale{
-	width: 60%;
-}
-
-#grandeDivDroite{
-	width : 20%;
-}
-
-.formulaireTransfoDeBase,#formulaireTransfoRedim,#formulaireTransfoCustom{
-	text-align : center;
 }
 
 #redim{
@@ -38,10 +20,6 @@
 
 #chercherImage{
 	margin-left: 45%;
-}
-
-#reset{
-	float: right;
 }
 
 #download{

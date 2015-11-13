@@ -19,6 +19,7 @@ include('connectBDD.php');
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="bootstrap.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
@@ -27,31 +28,24 @@ include('connectBDD.php');
 </head>
 
 <body>
-	<?php include('header.php'); ?>	
+	<div class="container">
+		<?php include('header.php'); ?>	
 
-	<article class="row">
-		<fieldset>
-
-			<div id="grandeDivGauche" class ="alignement">
+		<article class="row">
+			<div class="alignement col-lg-4">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-
-					<div class ="formulaireTransfoDeBase"><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Négatif" value ="Negatif"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"><br><br>
-						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"><br><br>
-					</div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Négatif" value ="Negatif"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"></div>
+					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"></div>
 				</form>
 			</div>
 
-
-			<div id="grandeDivCentrale" class ="alignement">
-				<div id="reset">
-					<input type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'">
-				</div>
+			<div class="alignement col-lg-4">
+				<div class="row"><input class="col-lg-offset-10 col-lg-2" type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'"></div>
 
 				<div id="chercherImage">
 					<form method="post" action="upload.php" enctype="multipart/form-data">
@@ -70,8 +64,7 @@ include('connectBDD.php');
 					?>
 				</div>
 			</div>
-
-			<div id="grandeDivDroite" class ="alignement">
+			<div class="alignement col-lg-4">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 					<div class ="formulaireTransfoDeBase" id="transfoDroite"><br>
 						<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien"><br><br>
@@ -105,12 +98,10 @@ include('connectBDD.php');
 							<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"><br><br>
 							<input class="buttonSubmit" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"><br><br>
 						</div>
-					</form>
-				</div>
+					</div>
+				</form>
 			</div>
-		</fieldset>
 
-		<fieldset>
 			<input type="button" name="recuperer" value="Récupérer" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'"><br>
 			<input type="button" name="sauvegarder" value="Sauvegarder" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>
 			<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
@@ -118,9 +109,9 @@ include('connectBDD.php');
 				</label>
 				<input type="submit" value="OK!">
 			</form>
-		</fieldset>
-	</article> 
+		</article> 
 
-	<?php include('footer.php'); ?>
+		<?php include('footer.php'); ?>
+	</div>
 </body>
 </html>

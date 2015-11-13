@@ -32,8 +32,8 @@ article{
 	padding-right: 10px;
 }
 
-/*[class*="col-"],header,footer {
+[class*="col-"],header,footer {
 			background-color: lightgreen;
 			border: 2px solid black;
 			border-radius: 6px;
-		}*/
+		}
