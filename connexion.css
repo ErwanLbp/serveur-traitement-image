@@ -1,21 +1,19 @@
-#formulaireInscription{	
-	background-color: #0000FF;
-	border-radius: 50%;
-	margin-left: 35%;
-	text-align: center;
-	color : #E1E6FA;
-	font-weight     : bold;
-}
-
-#formulaireConnexion{
+.formulaire{	
 	margin-top: 100px;
-	background-color: #375D81;
 	border-radius: 50%;
 	padding-top: 20px;
 	padding-bottom: 40px;
 	text-align: center;
 	color : #E1E6FA;
 	font-weight     : bold;
+}
+
+#formulaireInscription{	
+	background-color: #0000FF;
+}
+
+#formulaireConnexion{
+	background-color: #375D81;
 }
 
 #pseudo, #mdp{

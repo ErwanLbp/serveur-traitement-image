@@ -9,7 +9,7 @@ if(isset($_SESSION['pseudo'])){
 include('connectBDD.php');
 
 $erreur = "";
-if(isset($_POST['pseudo'])){
+if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 
 	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
 	$req->execute(array($_POST['pseudo'],$_POST['mdp']));
@@ -33,47 +33,48 @@ if(isset($_POST['pseudo'])){
 <head>
 	<title>Inscription</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
 	<link rel="stylesheet" type="text/css" href="connexion.css">
 </head>
 <body>
-	<div class="illustration">
-		<div class="i-large"></div>
-		<div class="i-medium"></div>
-		<div class="i-small"></div>
-	</div>
-
-
+	<div class="container">
 	<?php include ('header.php'); ?>
 
-	<article>
+	<article class="row">
 
 		<form method="post" action="inscription.php">
-			<fieldset id="formulaireInscription">
+			<div class="formulaire col-lg-offset-4 col-sm-4" id="formulaireInscription">
 
-				<br><br>
-				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
+					<?php if(!empty($erreur)) echo '<div class="row"><span class="col-lg-12">'.$erreur.'</span></div>'; ?>
 
-				<p>Remplissez tous les champs </p><br>
+					<div class="row">
+						<label for="pseudo" class="col-lg-offset-4 col-lg-4">Pseudo</label>
+					</div>
+					<div class="row">
+						<input class="col-lg-offset-3 col-lg-6" type="text" id="pseudo" name="pseudo"/>
+					</div>
 
-				<label>Pseudo <input type="text" id="pseudo" name="pseudo"/>
-				</label>
+					<div class="row">
+						<label for="mdp" class="col-lg-offset-4 col-lg-4"><br>Mot de passe</label>
+					</div>
+					<div class="row">
+						<input class="col-lg-offset-3 col-lg-6" type="password" id="mdp" name="mdp"/>
+					</div>
 
-				<br><br>
-
-				<label>Mot de passe <input type="password" id="mdp" name="mdp"/>
-				</label>
-
-				<br><br><br>
-
-				<input type="submit" class="bouton" value="Inscription"></input>
-				<br><br>
-			</fieldset>
+					<div class="row">
+						<br>
+						<input type="submit" class="bouton col-lg-offset-4 col-lg-4" value="Inscription">
+					</div>
+				</div>
 		</form>
 	</article>
 
 	<?php include('footer.php'); ?>
+</div>
 </body>
 </html>

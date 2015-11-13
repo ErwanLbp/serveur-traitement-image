@@ -46,7 +46,7 @@ if(isset($_POST['pseudo'])){
 		<article class="row">
 
 			<form method="post" action="connexion.php">
-				<div class="col-lg-offset-4 col-sm-4" id="formulaireConnexion">
+				<div class="formulaire col-lg-offset-4 col-sm-4" id="formulaireConnexion">
 
 					<?php if(!empty($erreur)) echo '<div class="row"><span class="col-lg-12">'.$erreur.'</span></div>'; ?>
 
@@ -65,11 +65,11 @@ if(isset($_POST['pseudo'])){
 					</div>
 
 					<div class="row">
-					<br>
+						<br>
 						<input type="submit" class="bouton col-lg-offset-3 col-lg-3" value="Connexion">
 						<input type="button" class="bouton col-lg-3" value="Inscription" onclick="document.location.href='inscription.php'">
 					</div>
-				</fieldset>
+				</div>
 			</form>
 		</article>
 
