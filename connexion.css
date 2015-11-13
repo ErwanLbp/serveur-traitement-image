@@ -1,8 +1,6 @@
 #formulaireInscription{	
 	background-color: #0000FF;
 	border-radius: 50%;
-
-	width: 30%;
 	margin-left: 35%;
 	text-align: center;
 	color : #E1E6FA;
@@ -13,8 +11,6 @@
 	background-color: #375D81;
 	border-radius: 50%;
 
-	width: 30%;
-	margin-left: 35%;
 	text-align: center;
 	color : #E1E6FA;
 	font-weight     : bold;
@@ -22,7 +18,7 @@
 
 .bouton:hover{
 	box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-	transition: 0.6s;
+	transition: 0.3s;
 }
 
 .bouton{

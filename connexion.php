@@ -41,38 +41,38 @@ if(isset($_POST['pseudo'])){
 </head>
 <body>
 	<div class="container">
-	<?php include ('header.php'); ?>
+		<?php include ('header.php'); ?>
 
-	<article class="row">
+		<article class="row">
 
-		<form method="post" action="connexion.php">
-			<fieldset id="formulaireConnexion">
+			<form method="post" action="connexion.php">
+				<div class="col-lg-offset-4 col-sm-4" id="formulaireConnexion">
 
-				<br><br>
-				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
+					<?php if(!empty($erreur)) echo '<div class="row"><span class="col-lg-12">'.$erreur.'</span></div>'; ?>
 
+					<div class="row">
+						<label for="pseudo" class="col-lg-offset-4 col-lg-4">Pseudo</label>
+					</div>
+					<div class="row">
+						<input class="col-lg-offset-3 col-lg-6" type="text" id="pseudo" name="pseudo"/>
+					</div>
 
-				<label>Pseudo<br><br>
-					<input type="text" id="pseudo" name="pseudo"/>
-				</label>
+					<div class="row">
+						<label for="mdp" class="col-lg-offset-4 col-lg-4">Mot de passe</label>
+					</div>
+					<div class="row">
+						<input class="col-lg-offset-3 col-lg-6" type="password" id="mdp" name="mdp"/>
+					</div>
 
-				<br><br>
+					<div class="row">
+						<input type="submit" class="bouton col-lg-offset-2 col-lg-3" value="Connexion">
+						<input type="button" class="bouton col-lg-offset-2 col-lg-3" value="Inscription" onclick="document.location.href='inscription.php'">
+					</div>
+				</fieldset>
+			</form>
+		</article>
 
-				<label>Mot de passe<br><br>
-					<input type="password" id="mdp" name="mdp"/>
-				</label>
-
-				<br><br><br>
-
-				<input type="submit" class="bouton" value="Connexion">
-				<input type="button" class="bouton" value="Inscription" onclick="document.location.href='inscription.php'">
-
-				<br><br>
-			</fieldset>
-		</form>
-	</article>
-
-	<?php include('footer.php'); ?>
+		<?php include('footer.php'); ?>
 	</div>
 </body>
 </html>
