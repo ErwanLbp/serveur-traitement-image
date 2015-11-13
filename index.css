@@ -6,10 +6,6 @@
 	display: none;
 }
 
-#transfoDroite{
-	display: block;
-}
-
 #masqueCustom{
 	display: none;
 }
@@ -18,8 +14,9 @@
 	text-align: center;
 }
 
-#chercherImage{
-	margin-left: 45%;
+#CanvasImage img{
+	max-width: 100%;
+	max-height: 100%;
 }
 
 #download{
