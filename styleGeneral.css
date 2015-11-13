@@ -1,13 +1,9 @@
 *{
-	/*border: 1px solid;*/
-	box-sizing: border-box;
 }
+
 article{
-	float        : left;
 	margin-top   : 10px;
 	margin-bottom: 10px;
-	position     : relative;
-	width        : 100%; 
 	min-height   : 700px;
 }
 
@@ -35,3 +31,9 @@ article{
 	height       : inherit;
 	padding-right: 10px;
 }
+
+[class*="col-"],header,footer {
+			background-color: lightgreen;
+			border: 2px solid black;
+			border-radius: 6px;
+		}

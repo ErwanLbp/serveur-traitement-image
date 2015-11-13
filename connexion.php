@@ -31,22 +31,19 @@ if(isset($_POST['pseudo'])){
 <head>
 	<title>Connexion</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
+	
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="connexion.css">	
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 <body>
-
-	<div class="illustration">
-		<div class="i-large"></div>
-		<div class="i-medium"></div>
-		<div class="i-small"></div>
-	</div>
-
+	<div class="container">
 	<?php include ('header.php'); ?>
 
-	<article>
+	<article class="row">
 
 		<form method="post" action="connexion.php">
 			<fieldset id="formulaireConnexion">
@@ -76,5 +73,6 @@ if(isset($_POST['pseudo'])){
 	</article>
 
 	<?php include('footer.php'); ?>
+	</div>
 </body>
 </html>

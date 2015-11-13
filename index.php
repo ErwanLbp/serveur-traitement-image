@@ -17,6 +17,8 @@ include('connectBDD.php');
 <head>
 	<title>Traitement d'Image</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
@@ -27,7 +29,7 @@ include('connectBDD.php');
 <body>
 	<?php include('header.php'); ?>	
 
-	<article>
+	<article class="row">
 		<fieldset>
 
 			<div id="grandeDivGauche" class ="alignement">
