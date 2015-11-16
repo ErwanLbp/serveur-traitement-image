@@ -46,31 +46,22 @@ if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 	<?php include ('header.php'); ?>
 
 	<article class="row">
+			<div class="col-lg-offset-4 col-sm-4">
+				<form method="post" action="inscription.php" class="well">
+					<legend>Inscription</legend>
+					<?php if(!empty($erreur)) echo '<div class="has-error"><p class="help-block">'.$erreur.'</p></div>'; ?>
 
-		<form method="post" action="inscription.php">
-			<div class="formulaire col-lg-offset-4 col-sm-4" id="formulaireInscription">
-
-					<?php if(!empty($erreur)) echo '<div class="row"><span class="col-lg-12">'.$erreur.'</span></div>'; ?>
-
-					<div class="row">
-						<label for="pseudo" class="col-lg-offset-4 col-lg-4">Pseudo</label>
+					<div class="form-group">
+						<label for="pseudo">Pseudo</label>
+						<input class="form-control" type="text" id="pseudo" name="pseudo"/>
 					</div>
-					<div class="row">
-						<input class="col-lg-offset-3 col-lg-6" type="text" id="pseudo" name="pseudo"/>
+					<div class="form-group">
+						<label for="mdp"><br>Mot de passe</label>
+						<input class="form-control" type="password" id="mdp" name="mdp"/>
 					</div>
-
-					<div class="row">
-						<label for="mdp" class="col-lg-offset-4 col-lg-4"><br>Mot de passe</label>
-					</div>
-					<div class="row">
-						<input class="col-lg-offset-3 col-lg-6" type="password" id="mdp" name="mdp"/>
-					</div>
-
-					<div class="row">
-						<br>
-						<input type="submit" class="bouton col-lg-offset-4 col-lg-4" value="Inscription">
-					</div>
-				</div>
+					<input type="submit" class="btn btn-primary" value="Inscription">
+				</form>
+			</div>
 		</form>
 	</article>
 

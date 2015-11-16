@@ -76,10 +76,10 @@ include('connectBDD.php');
 					<div class="row"><input class="buttonSubmit col-lg-offset-2 col-lg-8" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"></div>
 					<div class="row"><input type ="button" class="buttonSubmit col-lg-offset-2 col-lg-8" id="redimensionnement" name ="algorithme" value ="Redimensionnement" onclick=afficherCacherRedimCustom('redim')></div>
 					<div id="redim" style="display:none">
-						<div class="row">Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"></div>
-						<div class="row">Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"></div><br>
-						<div class="row">Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"></div>
-						<div class="row">Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"></div>
+						<div class="row"><div class="col-lg-12">Abscisse du 1er point <input class="champNombre" type ="number" name ="x1" value ="0" min="0"></div></div>
+						<div class="row"><div class="col-lg-12">Ordonné du 1er point <input class="champNombre" type ="number" name ="y1" value ="0" min="0"></div></div><br>
+						<div class="row"><div class="col-lg-12">Abscisse du 2eme point <input class="champNombre" type ="number" name ="x2" value ="0" min="0"></div></div>
+						<div class="row"><div class="col-lg-12">Ordonné du 2eme point <input class="champNombre" type ="number" name ="y2" value ="0" min="0"></div></div>
 					</div>
 					<div class="row"><input id="masque" type ="button" class="buttonSubmit col-lg-offset-2 col-lg-8" name ="algorithme" value ="Masque Custom" onclick=afficherCacherRedimCustom('masqueCustom')></div>
 					<div id="masqueCustom" style="display:none">
@@ -97,18 +97,17 @@ include('connectBDD.php');
 				</form>
 			</div>
 		</form>
-	</div>
 
-	<input type="button" name="recuperer" value="Récupérer" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'"><br>
-	<input type="button" name="sauvegarder" value="Sauvegarder" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>
-	<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
-		<label>Renommer l'image: <input type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
-		</label>
-		<input type="submit" value="OK!">
-	</form>
-</article> 
+		<input type="button" name="recuperer" value="Récupérer" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'"><br>
+		<input type="button" name="sauvegarder" value="Sauvegarder" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>
+		<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
+			<label>Renommer l'image: <input type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+			</label>
+			<input type="submit" value="OK!">
+		</form>
+	</article> 
 
-<?php include('footer.php'); ?>
+	<?php include('footer.php'); ?>
 </div>
 </body>
 </html>

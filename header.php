@@ -1,5 +1,5 @@
 <header class="row">
-	<div class="col-lg-4"><a href="index.php"><img src="ImagesHTML/accueil.jpg" alt="Accueil"></a></div>
+	<div class="col-lg-4"><a class="btn btn-primary" href="index.php">Accueil</a></div>
 
 	<div class="col-lg-offset-4 col-lg-4">
 
