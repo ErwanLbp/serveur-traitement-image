@@ -44,7 +44,7 @@ if(isset($_POST['pseudo'])){
 		<?php include ('header.php'); ?>
 
 		<article class="row">
-			<div class="col-lg-offset-4 col-sm-4">
+			<div class="col-lg-offset-4 col-sm-4 formulaire">
 				<form method="post" action="connexion.php" class="well">
 					<legend>Connexion</legend>
 					<?php if(!empty($erreur)) echo '<div class="has-error"><p class="help-block">'.$erreur.'</p></div>'; ?>
@@ -58,7 +58,7 @@ if(isset($_POST['pseudo'])){
 						<input class="form-control" type="password" id="mdp" name="mdp"/>
 					</div>
 					<input type="submit" class="btn btn-primary" value="Connexion">
-					<input type="button" class="btn btn-primary" value="Inscription" onclick="document.location.href='inscription.php'">
+					<input type="button" class="btn btn-success" value="Inscription" onclick="document.location.href='inscription.php'">
 				</form>
 			</div>
 		</article>

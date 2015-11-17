@@ -46,7 +46,7 @@ if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 	<?php include ('header.php'); ?>
 
 	<article class="row">
-			<div class="col-lg-offset-4 col-sm-4">
+			<div class="col-lg-offset-4 col-sm-4 formulaire">
 				<form method="post" action="inscription.php" class="well">
 					<legend>Inscription</legend>
 					<?php if(!empty($erreur)) echo '<div class="has-error"><p class="help-block">'.$erreur.'</p></div>'; ?>
