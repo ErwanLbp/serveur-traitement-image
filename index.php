@@ -27,36 +27,32 @@ include('connectBDD.php');
 	<script type="text/javascript" src="fonctions.js"></script>
 </head>
 
-<body>
-	<div class="container">
-		<?php include('header.php'); ?>	
+<body class="container">
+	<?php include('header.php'); ?>	
 
-		<article class="row" style="margin-top:5%;">
-			<div class="alignement col-lg-4">
-				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-					<div class="col-lg-offset-2 col-lg-8">
-						<div class="btn-group-vertical">
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Négatif" value ="Negatif"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"></div>
-						</div>
+	<article class="row" style="margin-top:5%;">
+		<div class="row">
+			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
+				<div class="col-lg-3" style="text-align:center">
+					<div class="btn-group-vertical">
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Lissage" value ="Lissage"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Négatif" value ="Negatif"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Binarisation" value ="Binarisation"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Niveau de gris" value ="Niveau de gris"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Symetrie Verticale" value ="Symetrie Verticale"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Symetrie Horizontale" value ="Symetrie Horizontale"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Amelioration du contraste" value ="Amelioration du contraste"></div>
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 
-			<div class="alignement col-lg-4">
+			<div class="col-lg-6">
 				<div class="row">
-					<input class="col-lg-2" type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'">
-					<div class="col-lg-8" id="chercherImage">
-						<form method="post" action="upload.php" enctype="multipart/form-data">
-							<input type="hidden" name="MAX_FILE_SIZE" value="taille">
-							<input type ="file" name ="photo" size ="taille" onchange="this.form.submit()">
-						</form>
-					</div>
+					<input class="btn btn-danger btn-xs" type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'">
+					<form method="post" action="upload.php" enctype="multipart/form-data" id="chercherImage" style="display:inline-block;">
+						<input type="hidden" name="MAX_FILE_SIZE" value="taille">
+						<input type ="file" name ="photo" size ="taille" onchange="this.form.submit()">
+					</form>
 				</div>
 				<div class="row">
 					<div class="col-lg-12" id="CanvasImage">
@@ -70,31 +66,32 @@ include('connectBDD.php');
 				</div>
 			</div>
 
-			<div class="alignement col-lg-4">
-				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-					<div class="col-lg-offset-2 col-lg-8">
-						<div class="btn-group-vertical">
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"></div>
-							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"></div>
-							
-							<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Redimensionnement" id="redimensionnement"  value ="Redimensionnement" onclick=afficherCacherRedimCustom('redim')></div>
-							<div id="redim" style="display:none" class="well">
-								<div class="form-group">
-									<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-									<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								</div>
-								<div class="form-group">
-									<div class="row">Abscisse 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-									<div class="row">Ordonné 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								</div>
-							</div>
+			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
+				<div class="col-lg-3" style="text-align:center">
+					<div class="btn-group-vertical">
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Laplacien" value ="Laplacien"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Gradient Sobel" value ="Gradient Sobel"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Gradient Simple" value ="Gradient Simple"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Reduction de bruit" value ="Reduction de bruit"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Detection contours Sobel" value ="Detection contours Sobel"></div>
+						<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"></div>
 
-							<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Masque custom" value ="Masque Custom" id="masque" onclick=afficherCacherRedimCustom('masqueCustom')></div>
-							<div id="masqueCustom" style="display:none" class="well">
+						<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Redimensionnement" id="redimensionnement"  value ="Redimensionnement" onclick=afficherCacherRedimCustom('redim')></div>
+						<div id="redim" style="display:none" class="well">
+							<div class="form-group">
+								<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+							</div>
+							<div class="form-group">
+								<div class="row">Abscisse 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								<div class="row">Ordonné 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+							</div>
+							<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Redimensionnement" value ="Redimensionnement">
+						</div>
+
+						<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Masque custom" value ="Masque Custom" id="masque" onclick=afficherCacherRedimCustom('masqueCustom')></div>
+						<div id="masqueCustom" style="display:none" class="well">
+							<div class="form-group">
 								<p>Remplir la matrice suivante : </p>
 								<input class="champNombre" type ="number" name ="m1" value ="0">
 								<input class="champNombre" type ="number" name ="m2" value ="0">
@@ -106,21 +103,32 @@ include('connectBDD.php');
 								<input class="champNombre" type ="number" name ="m8" value ="0">
 								<input class="champNombre" type ="number" name ="m9" value ="0">
 							</div>
+							<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Masque Custom" value ="Masque Custom">
 						</div>
 					</div>
+				</div>
+			</form>
+		</div>
+		<div class="row" id="save">
+			<div class="col-lg-12">
+				<div class="btn-group">
+					<a class="btn btn-warning" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'">Telecharger</a>
+					<a class="btn btn-success" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>Sauvegarder</a>
+				</div>
+				<form class="form-horizontal" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
+					<label for="nomImage">Renommer l'image: </label>
+					<input id="nomImage" type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+					<input type="submit" class="btn btn-success btn-sm" value="OK!">
 				</form>
 			</div>
+		</div>
+		<?php 
+			if(!isset($_SESSION['cheminImageJPG']))
+				echo "<script type='text/javascript'>afficherCacher('save')</script>";
+		?>
 
-			<input type="button" name="recuperer" value="Récupérer" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'"><br>
-			<input type="button" name="sauvegarder" value="Sauvegarder" title="Sauvegarder l'image sur le serveur" onclick=afficherCacher('sauvegarde')>
-			<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
-				<label>Renommer l'image: <input type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
-				</label>
-				<input type="submit" value="OK!">
-			</form>
-		</article> 
+	</article> 
 
-		<?php include('footer.php'); ?>
-	</div>
+	<?php include('footer.php'); ?>
 </body>
 </html>
