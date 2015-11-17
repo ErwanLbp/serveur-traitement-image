@@ -31,7 +31,7 @@ include('connectBDD.php');
 	<div class="container">
 		<?php include('header.php'); ?>	
 
-		<article class="row">
+		<article class="row" style="margin-top:5%;">
 			<div class="alignement col-lg-4">
 				<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 					<div class="col-lg-offset-2 col-lg-8">
@@ -82,15 +82,19 @@ include('connectBDD.php');
 							<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Detection contours Laplacien" value ="Detection contours Laplacien"></div>
 							
 							<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Redimensionnement" id="redimensionnement"  value ="Redimensionnement" onclick=afficherCacherRedimCustom('redim')></div>
-							<div id="redim" style="display:none">
-								<div class="row">Abscisse du 1er point : <div class="input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								<div class="row">Ordonné du 1er point <div class="input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								<div class="row">Abscisse du 2eme point <div class="input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								<div class="row">Ordonné du 2eme point <div class="input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+							<div id="redim" style="display:none" class="well">
+								<div class="form-group">
+									<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								</div>
+								<div class="form-group">
+									<div class="row">Abscisse 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								</div>
 							</div>
 
 							<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Masque custom" value ="Masque Custom" id="masque" onclick=afficherCacherRedimCustom('masqueCustom')></div>
-							<div id="masqueCustom" style="display:none">
+							<div id="masqueCustom" style="display:none" class="well">
 								<p>Remplir la matrice suivante : </p>
 								<input class="champNombre" type ="number" name ="m1" value ="0">
 								<input class="champNombre" type ="number" name ="m2" value ="0">
@@ -100,7 +104,7 @@ include('connectBDD.php');
 								<input class="champNombre" type ="number" name ="m6" value ="0"><br>
 								<input class="champNombre" type ="number" name ="m7" value ="0">
 								<input class="champNombre" type ="number" name ="m8" value ="0">
-								<input class="champNombre" type ="number" name ="m9" value ="0"><br><br>
+								<input class="champNombre" type ="number" name ="m9" value ="0">
 							</div>
 						</div>
 					</div>
