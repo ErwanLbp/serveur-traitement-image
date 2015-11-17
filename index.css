@@ -23,31 +23,3 @@
 	position: relative;
 	margin-top: 2%;
 }
-
-.champNombre{
-	width: 15%;
-}
-
-.buttonSubmit {
-	position: relative;
-	float: center;
-	border-radius: 15% 15% 15% 15%;
-	font-family: 'Times New Roman', cursive;
-	font-size: 150%;
-	color: #FFF; 
-	background-color: #3498DB;
-	border-bottom: 5% solid #2980B9;
-	/* Animation */
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
-
-.buttonSubmit:active {
-	transform: translate(0%,5%);
-	-webkit-transform: translate(0%,5%);
-	border-bottom: 1% solid;
-}
-
-.buttonSubmit:focus{
-	background-color: #212BE4;
-}
