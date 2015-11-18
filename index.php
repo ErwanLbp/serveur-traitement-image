@@ -114,7 +114,7 @@ include('connectBDD.php');
 			<form method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde">
 				<label>Renommer l'image: <input type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
 				</label>
-				<input type="submit" value="OK!">
+				<input type="submit" value="OK !">
 			</form>
 		</fieldset>
 	</article> 
