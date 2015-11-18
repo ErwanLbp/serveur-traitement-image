@@ -35,7 +35,6 @@ include('connectBDD.php');
 		$req = $bdd->prepare('SELECT * FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.pseudo=?');
 		$req->execute(array($_SESSION['pseudo']));
 
-echo '<br>'.exec('pwd').'<br>';
 		while($donnee = $req->fetch()){
 			echo '<div class="col-lg-2"><img class="img-rounded" src="'.$donnee['chemin'].'" alt="'.$donnee['chemin'].'"></div>';
 		}
