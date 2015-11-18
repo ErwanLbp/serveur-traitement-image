@@ -14,28 +14,25 @@ if(isset($_SESSION['cheminImage'])){
 
 $dossier = 'Images/';
 $_SESSION['cheminImage'] = $dossier.$_FILES['photo']['name'];
-// $tailleMax = 1000000;
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
 
 
 if(!in_array($extension, $extensionsPossible)){
-	$erreur = 'Rentrer un type ppm, pbm ou pgm';
+	$erreur = 'Rentrez un type ppm, pbm ou pgm';
 }
 
-if((!isset($photo)) && (!isset($erreur))){
-
+if($erreur == ""){
 	if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier.basename($_SESSION['cheminImage']))){
 		exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg');
 		$_SESSION['cheminImageJPG'] = mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg';
 		header('Location: index.php');
-	}
-	else{
-		unset($_SESSION['cheminImage'], $_SESSION['algorithme']);
-		echo 'Echec de l\'upload !';
+		exit();
 	}
 }
-else
-	echo 'Erreur upload';
+
+echo $erreur;
+unset($_SESSION['cheminImage']);
+echo '</br><input type="button" value="Retour à l\'accueil" onclick="document.location.href=\'index.php\'">';
 
 ?>

@@ -11,7 +11,7 @@ include('connectBDD.php');
 $erreur = "";
 if(isset($_POST['pseudo'])){
 
-	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
+	$req = $bdd->prepare('SELECT idProfil,pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
 	$req->execute(array($_POST['pseudo'],$_POST['mdp']));
 
 	$donnee = $req->fetch();
