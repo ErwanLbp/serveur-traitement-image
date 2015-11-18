@@ -22,19 +22,11 @@
 	?>
 	
 	<!-- On affiche le nombre de connectés -->
-	<div class="col-lg-4">
-		<p>
-			<?php echo 'Vous êtes actuellement <strong>' . $donnees['nbre_entrees'] . '</strong> sur le site !'; ?>
-		</p>
-	</div>
+	<p class="col-lg-4">
+		<?php echo 'Vous êtes actuellement <strong>' . $donnees['nbre_entrees'] . '</strong> sur le site !'; ?>
+	</p>
 
 	<!-- On affiche le copyright du site -->
-	<div class="col-sm-4">
-		<div class="row">
-		<div class="col-sm-12">Développé par la dream team</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">Copyrights © 2015-2016 Tous droits réservés</div>
-		</div>
-	</div>	
+	<p class="col-sm-4">Développé par la dream team</p>
+	<p class="col-sm-4">Copyrights © 2015-2016 Tous droits réservés</p>
 </footer>
