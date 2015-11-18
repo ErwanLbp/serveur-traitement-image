@@ -126,7 +126,6 @@ include('connectBDD.php');
 			if(!isset($_SESSION['cheminImageJPG']))
 				echo "<script type='text/javascript'>afficherCacher('save')</script>";
 		?>
-
 	</article> 
 
 	<?php include('footer.php'); ?>
