@@ -1,4 +1,4 @@
-<footer>
+<footer class="row">
 	<?php
 	// On regarde si notre IP est enregistrées dans la table
 	$retour = $bdd->query('SELECT COUNT(*) AS nbre_entrees FROM connectes WHERE ip=\'' . $_SERVER['REMOTE_ADDR'] . '\'');
@@ -22,20 +22,11 @@
 	?>
 	
 	<!-- On affiche le nombre de connectés -->
-	<div class="gauche">
-		<p>
-			<?php echo 'Vous êtes actuellement <strong>' . $donnees['nbre_entrees'] . '</strong> sur le site !'; ?>
-		</p>
-	</div>
+	<p class="col-lg-4">
+		<?php echo 'Vous êtes actuellement <strong>' . $donnees['nbre_entrees'] . '</strong> sur le site !'; ?>
+	</p>
 
 	<!-- On affiche le copyright du site -->
-	<div class="centre">
-		Développé par la dream team</br> Copyrights © 2015-2016 Tous droits réservés
-	</div>
-
-	<!-- On met deux liens, pour nous contacter ou voir l'équipe de développement -->
-	<div class="droite">
-
-	</div>
-	
+	<p class="col-sm-4">Développé par la dream team</p>
+	<p class="col-sm-4">Copyrights © 2015-2016 Tous droits réservés</p>
 </footer>

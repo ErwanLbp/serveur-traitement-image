@@ -31,50 +31,38 @@ if(isset($_POST['pseudo'])){
 <head>
 	<title>Connexion</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
+	
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="connexion.css">	
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 <body>
+	<div class="container">
+		<?php include ('header.php'); ?>
 
-	<div class="illustration">
-		<div class="i-large"></div>
-		<div class="i-medium"></div>
-		<div class="i-small"></div>
+		<article class="row">
+			<div class="col-lg-offset-4 col-sm-4 formulaire">
+				<form method="post" action="connexion.php" class="well">
+					<legend>Connexion</legend>
+					<?php if(!empty($erreur)) echo '<div class="has-error"><p class="help-block">'.$erreur.'</p></div>'; ?>
+
+					<div class="form-group">
+						<label for="pseudo">Pseudo</label>
+						<input class="form-control" type="text" id="pseudo" name="pseudo"/>
+					</div>
+					<div class="form-group">
+						<label for="mdp"><br>Mot de passe</label>
+						<input class="form-control" type="password" id="mdp" name="mdp"/>
+					</div>
+					<input type="submit" class="btn btn-primary" value="Connexion">
+					<input type="button" class="btn btn-success" value="Inscription" onclick="document.location.href='inscription.php'">
+				</form>
+			</div>
+		</article>
+		<?php include('footer.php'); ?>
 	</div>
-
-	<?php include ('header.php'); ?>
-
-	<article>
-
-		<form method="post" action="connexion.php">
-			<fieldset id="formulaireConnexion">
-
-				<br><br>
-				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
-
-
-				<label>Pseudo<br><br>
-					<input type="text" id="pseudo" name="pseudo"/>
-				</label>
-
-				<br><br>
-
-				<label>Mot de passe<br><br>
-					<input type="password" id="mdp" name="mdp"/>
-				</label>
-
-				<br><br><br>
-
-				<input type="submit" class="bouton" value="Connexion">
-				<input type="button" class="bouton" value="Inscription" onclick="document.location.href='inscription.php'">
-
-				<br><br>
-			</fieldset>
-		</form>
-	</article>
-
-	<?php include('footer.php'); ?>
 </body>
 </html>

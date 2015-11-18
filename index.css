@@ -1,47 +1,10 @@
-.alignement{
-	display : inline-block;
-	height: 500px;
-	float:left;
-}
-
-#grandeDivGauche{
-	width:20%;
-}
-
-#grandeDivCentrale{
-	width: 60%;
-}
-
-#grandeDivDroite{
-	width : 20%;
-}
-
-.formulaireTransfoDeBase,#formulaireTransfoRedim,#formulaireTransfoCustom{
-	text-align : center;
-}
-
-#redim{
-	display: none;
-}
-
-#transfoDroite{
-	display: block;
-}
-
-#masqueCustom{
-	display: none;
-}
-
 #CanvasImage{
 	text-align: center;
 }
 
-#chercherImage{
-	margin-left: 45%;
-}
-
-#reset{
-	float: right;
+#CanvasImage img{
+	max-width: 100%;
+	max-height: 100%;
 }
 
 #download{
@@ -49,30 +12,6 @@
 	margin-top: 2%;
 }
 
-.champNombre{
-	width: 15%;
-}
-
-.buttonSubmit {
-	position: relative;
-	float: center;
-	border-radius: 15% 15% 15% 15%;
-	font-family: 'Times New Roman', cursive;
-	font-size: 150%;
-	color: #FFF; 
-	background-color: #3498DB;
-	border-bottom: 5% solid #2980B9;
-	/* Animation */
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
-
-.buttonSubmit:active {
-	transform: translate(0%,5%);
-	-webkit-transform: translate(0%,5%);
-	border-bottom: 1% solid;
-}
-
-.buttonSubmit:focus{
-	background-color: #212BE4;
+input[type="number"]{
+	width:50px;
 }

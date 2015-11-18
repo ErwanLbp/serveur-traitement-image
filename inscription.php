@@ -9,7 +9,7 @@ if(isset($_SESSION['pseudo'])){
 include('connectBDD.php');
 
 $erreur = "";
-if(isset($_POST['pseudo'])){
+if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 
 	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
 	$req->execute(array($_POST['pseudo'],$_POST['mdp']));
@@ -33,39 +33,39 @@ if(isset($_POST['pseudo'])){
 <head>
 	<title>Inscription</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
+	<link rel="stylesheet" type="text/css" href="connexion.css">
 </head>
 <body>
+	<div class="container">
 	<?php include ('header.php'); ?>
 
-	<article>
+	<article class="row">
+			<div class="col-lg-offset-4 col-sm-4 formulaire">
+				<form method="post" action="inscription.php" class="well">
+					<legend>Inscription</legend>
+					<?php if(!empty($erreur)) echo '<div class="has-error"><p class="help-block">'.$erreur.'</p></div>'; ?>
 
-		<form method="post" action="inscription.php">
-			<fieldset id="formulaireInscription">
-
-				<br><br>
-				<?php if(!empty($erreur)) echo '<span>'.$erreur.'</span><br><br>'; ?>
-
-				<p>Remplissez tous les champs :</p>
-
-				<label>Pseudo :	<input type="text" id="pseudo" name="pseudo"/>
-				</label>
-
-				<br><br>
-
-				<label>Mot de passe : <input type="password" id="mdp" name="mdp"/>
-				</label>
-
-				<br><br><br>
-
-				<input type="submit" class="bouton" value="Connexion"></input>
-				<br><br>
-			</fieldset>
+					<div class="form-group">
+						<label for="pseudo">Pseudo</label>
+						<input class="form-control" type="text" id="pseudo" name="pseudo"/>
+					</div>
+					<div class="form-group">
+						<label for="mdp"><br>Mot de passe</label>
+						<input class="form-control" type="password" id="mdp" name="mdp"/>
+					</div>
+					<input type="submit" class="btn btn-primary" value="Inscription">
+				</form>
+			</div>
 		</form>
 	</article>
 
 	<?php include('footer.php'); ?>
+</div>
 </body>
 </html>

@@ -1,25 +1,5 @@
-#formulaireConnexion{
-	background-color: #375D81;
-	border-radius: 50%;
-
-	width: 30%;
-	margin-left: 35%;
-	text-align: center;
-	color : #E1E6FA;
-	font-weight     : bold;
-}
-
-.bouton:hover{
-	box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-	transition: 0.6s;
-}
-
-.bouton{
-	border-radius   : 5px; 
-	padding         : 5px 5px; 
-	color           : rgba(0, 0, 0, 0.8);
-	font-weight     : bold;
-	transition: 0.4s;
+.formulaire{
+	margin-top: 10%;
 }
 
 .i-large,
