@@ -7,11 +7,6 @@
 	max-height: 100%;
 }
 
-#download{
-	position: relative;
-	margin-top: 2%;
-}
-
 input[type="number"]{
 	width:50px;
 }
