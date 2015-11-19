@@ -32,18 +32,27 @@ include('connectBDD.php');
 	<article class="row" style="margin-top:5%;">
 
 	<?php 
-		$req = $bdd->prepare('SELECT * FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.pseudo=?');
-		$req->execute(array($_SESSION['pseudo']));
+		$req = $bdd->prepare('SELECT ima.auteur, ima.chemin, ima.id FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.idProfil=?');
+		$req->execute(array($_SESSION['idProfil']));
 
 
 
 		while($donnee = $req->fetch()){
-			echo $donnee['chemin'];
-			echo '<div class="col-lg-2"><img class="img-rounded" src="'.$donnee['chemin'].'" alt="'.$donnee['chemin'].'"></div>';
-		}
+			echo '<div class="col-lg-2" style="border:solid;">';
+			echo '<img class="img-rounded" src="'.$donnee['chemin'].'" alt="Photos" >';
+			echo '<form method="post" action="supprimer.php" enctype="multipart/form-data">';
+			echo '	<input type="hidden" name="chemin" value="'.$donnee['chemin'].'">';
+			echo '	<input type="hidden" name="idImage" value="'.$donnee['id'].'">';
+			echo '	<input type="submit" value="Supprimer">';
+			echo '</form>';
 
+
+			echo '</div>';
+		}
+		$req->closeCursor();
 	?>
 
+		
 	</article> 
 
 	<?php include('footer.php'); ?>
