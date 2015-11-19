@@ -22,8 +22,19 @@ if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 	else{
 		$req = $bdd->prepare('INSERT INTO profil VALUES(\'\',?,?)');
 		$req->execute(array($_POST['pseudo'],$_POST['mdp']));
+
+		$req = $bdd->prepare('SELECT idProfil FROM profil WHERE pseudo=?');
+		$req->execute(array($_POST['pseudo']));
+
+		$donnee = $req->fetch();
+		$req->closeCursor();
+
 		$_SESSION['pseudo'] = $_POST['pseudo'];
+		$_SESSION['idProfil'] = $donnee['idProfil'];
+		mkdir('sauvegardes/'.$_SESSION['pseudo']);
+		exec('chmod 777 sauvegardes/'.$_SESSION['pseudo']);
 		header('Location: index.php');
+		exit();
 	}
 }
 ?>
