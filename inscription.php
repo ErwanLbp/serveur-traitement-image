@@ -11,8 +11,8 @@ include('connectBDD.php');
 $erreur = "";
 if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 
-	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ? AND mdp = ?');
-	$req->execute(array($_POST['pseudo'],$_POST['mdp']));
+	$req = $bdd->prepare('SELECT pseudo FROM profil WHERE pseudo = ?');
+	$req->execute(array($_POST['pseudo']));
 
 	$donnee = $req->fetch();
 	$req->closeCursor();
