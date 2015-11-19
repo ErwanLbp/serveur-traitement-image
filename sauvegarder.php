@@ -14,15 +14,34 @@ if(!isset($_SESSION['cheminImage'])){
 
 include('connectBDD.php');
 
+
 $dossierDest = 'sauvegardes/'.$_SESSION['pseudo'];
+$nomComplet = $_POST['nomImage'].$_POST['extension'];
+$req = $bdd->prepare('SELECT ima.nom FROM profil pro, images ima WHERE pro.idProfil=ima.auteur AND pro.idProfil=? AND ima.nom=?');
+$req->execute(array($_SESSION['idProfil'],$nomComplet));
 
-if(!is_dir($dossierDest))
-	exec('mkdir sauvegardes/'.$_SESSION['pseudo']);
+$donnee = $req->fetch();
+$req->closeCursor();
 
-if(copy($_SESSION['cheminImage'], $dossierDest.'/'.$_POST['nomImage'].$_POST['extension']))
-	$resultat = 'Bravo l\'image a été sauvegardée sur le serveur avec succès au nom : '.$_POST['nomImage'].$_POST['extension'];
-else
-	$resultat = 'Echec de l\'upload !';
+if($donnee)
+	$resultat = "Nom déja utilisé, trouvez en un autre";
+else{
+	$chemin = $dossierDest.'/'.$_POST['nomImage'].$_POST['extension'];
+
+	if(!is_dir($dossierDest)){
+		mkdir('sauvegardes/'.$_SESSION['pseudo']);
+		exec('chmod 777 sauvegardes/'.$_SESSION['pseudo']);
+	}
+
+	if(copy($_SESSION['cheminImage'], $chemin)){
+		$resultat = 'Bravo l\'image a été sauvegardée sur le serveur avec succès au nom : <span style="color:#C85A17">'.$_POST['nomImage'].$_POST['extension'].'</span>';
+		$req = $bdd->prepare('INSERT INTO images VALUES (\'\',?,?,?)');
+		$req->execute(array($chemin, $_SESSION['idProfil'], $nomComplet));
+		exec('convert '.$chemin.' '.mb_strcut($chemin, 0, strlen($chemin)-4).'.jpg');
+	}
+	else
+		$resultat = 'Echec de la sauvegarde !';
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +58,20 @@ else
 	<script type="text/javascript" src="fonctions.js"></script>
 </head>
 
-<body>
+<body class="container">
 	<?php include('header.php'); ?>	
-
-	<input class="buttonSubmit" type = "button" value="Retour à l'accueil" onclick="document.location.href='index.php'">
-	<input class="buttonSubmit" type = "button" value="Ne plus jamais revenir sur ce site" onclick="document.location.href='index.php'">
-
-
+	
+	<article class="row" style="margin-top:5%;">
+		<div class="row">
+			<h1 class="col-lg-12" style="text-align:center; word-wrap: break-word;"><?php echo $resultat; ?></h1>
+		</div>
+		<div class="row">	
+			<div class="col-lg-offset-4 col-lg-4">
+				<a class="btn btn-success btn-block" href="index.php">Retour à l'accueil</a>
+			</div>
+		</div>
+	</article>
+	
 	<?php include('footer.php'); ?>
 </body>
 </html>
