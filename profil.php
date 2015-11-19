@@ -18,7 +18,7 @@ include('connectBDD.php');
 	<title>Profil</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap.min.css">
 
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
@@ -35,7 +35,10 @@ include('connectBDD.php');
 		$req = $bdd->prepare('SELECT * FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.pseudo=?');
 		$req->execute(array($_SESSION['pseudo']));
 
+
+
 		while($donnee = $req->fetch()){
+			echo $donnee['chemin'];
 			echo '<div class="col-lg-2"><img class="img-rounded" src="'.$donnee['chemin'].'" alt="'.$donnee['chemin'].'"></div>';
 		}
 
