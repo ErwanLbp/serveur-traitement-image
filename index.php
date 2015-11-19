@@ -117,7 +117,8 @@ include('connectBDD.php');
 				</div>
 				<form class="form-horizontal" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
 					<label for="nomImage">Renommer l'image: </label>
-					<input id="nomImage" type="text" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+					<input id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+					<input type="hidden" name="extension" value="<?php if(isset($_SESSION['cheminImage'])) echo mb_strcut($_SESSION['cheminImage'], strlen($_SESSION['cheminImage'])-4 , strlen($_SESSION['cheminImage']));?>">
 					<input type="submit" class="btn btn-success btn-sm" value="OK!">
 				</form>
 			</div>
