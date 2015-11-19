@@ -123,8 +123,8 @@ include('connectBDD.php');
 			</div>
 		</div>
 		<?php 
-			if(!isset($_SESSION['cheminImageJPG']))
-				echo "<script type='text/javascript'>afficherCacher('save')</script>";
+		if(!isset($_SESSION['cheminImageJPG']))
+			echo "<script type='text/javascript'>afficherCacher('save')</script>";
 		?>
 	</article> 
 
