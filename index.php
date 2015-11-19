@@ -83,8 +83,8 @@ include('connectBDD.php');
 								<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
 							</div>
 							<div class="form-group">
-								<div class="row">Abscisse 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-								<div class="row">Ordonné 2eme point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								<div class="row">Abscisse 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								<div class="row">Ordonné 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
 							</div>
 							<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Redimensionnement" value ="Redimensionnement">
 						</div>
@@ -92,7 +92,7 @@ include('connectBDD.php');
 						<div class="btn-group"><input class="btn btn-primary" type ="button" name ="algorithme" title ="Masque custom" value ="Masque Custom" id="masque" onclick=afficherCacherRedimCustom('masqueCustom')></div>
 						<div id="masqueCustom" style="display:none" class="well">
 							<div class="form-group">
-								<p>Remplir la matrice suivante : </p>
+								<p>Remplir la matrice suivante: </p>
 								<input class="champNombre" type ="number" name ="m1" value ="0">
 								<input class="champNombre" type ="number" name ="m2" value ="0">
 								<input class="champNombre" type ="number" name ="m3" value ="0"><br>
