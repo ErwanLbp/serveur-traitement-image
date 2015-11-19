@@ -17,7 +17,7 @@ if(isset($_POST['pseudo'])){
 	$donnee = $req->fetch();
 	$req->closeCursor();
 
-	if($donnee['idProfil'] == $_POST['idProfil']){
+	if($donnee['pseudo'] == $_POST['pseudo']){
 		$_SESSION['pseudo'] = $donnee['pseudo'];
 		$_SESSION['idProfil'] = $donnee['idProfil'];
 		header('Location: index.php');
