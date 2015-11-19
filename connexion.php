@@ -19,6 +19,7 @@ if(isset($_POST['pseudo'])){
 
 	if($donnee['pseudo'] == $_POST['pseudo']){
 		$_SESSION['pseudo'] = $donnee['pseudo'];
+		$_SESSION['idProfil'] = $donnee['idProfil'];
 		header('Location: index.php');
 	}
 	else

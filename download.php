@@ -12,7 +12,6 @@ if(!isset($_SESSION['cheminImage'])){
 	exit();
 }
 
-
 if(file_exists($_SESSION['cheminImage'])){
 	$fichier=basename($_SESSION['cheminImage']);
 
