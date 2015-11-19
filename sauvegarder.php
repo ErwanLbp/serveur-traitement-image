@@ -19,21 +19,20 @@ $dossierDest = 'sauvegardes/'.$_SESSION['pseudo'];
 if(!is_dir($dossierDest))
 	exec('mkdir sauvegardes/'.$_SESSION['pseudo']);
 
-if(copy($_SESSION['cheminImage'], $dossierDest.'/'.$_POST['nomImage']))
-	echo 'Bravo l\'image a été sauvegardée sur le serveur avec succès';
-else{
-	unset($_SESSION['cheminImage'], $_SESSION['algorithme']);
-	echo 'Echec de l\'upload !';
-}
+if(copy($_SESSION['cheminImage'], $dossierDest.'/'.$_POST['nomImage'].$_POST['extension']))
+	$resultat = 'Bravo l\'image a été sauvegardée sur le serveur avec succès au nom : '.$_POST['nomImage'].$_POST['extension'];
+else
+	$resultat = 'Echec de l\'upload !';
 ?>
-
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Traitement d'Image</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bootstrap.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="styleGeneral.css">
 	<link rel="stylesheet" type="text/css" href="header.css">
 	<link rel="stylesheet" type="text/css" href="footer.css">
