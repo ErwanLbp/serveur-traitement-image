@@ -35,8 +35,6 @@ include('connectBDD.php');
 		$req = $bdd->prepare('SELECT ima.auteur, ima.chemin, ima.id FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.idProfil=?');
 		$req->execute(array($_SESSION['idProfil']));
 
-
-
 		while($donnee = $req->fetch()){
 			echo '<div class="col-lg-2">';
 			echo '<img class="img-rounded" src="'.mb_strcut($donnee['chemin'], 0, strlen($donnee['chemin'])-4).'.jpg" alt="'.$donnee['chemin'].'" >';
@@ -45,14 +43,11 @@ include('connectBDD.php');
 			echo '	<input type="hidden" name="idImage" value="'.$donnee['id'].'">';
 			echo '	<input type="submit" value="Supprimer">';
 			echo '</form>';
-
-
 			echo '</div>';
 		}
 		$req->closeCursor();
 	?>
 
-		
 	</article> 
 
 	<?php include('footer.php'); ?>
