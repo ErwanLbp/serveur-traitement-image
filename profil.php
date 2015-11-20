@@ -31,7 +31,7 @@ include('connectBDD.php');
 
 	<article class="row" style="margin-top:5%;">
 
-	<?php 
+		<?php 
 		$req = $bdd->prepare('SELECT ima.chemin, ima.id FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.idProfil=?');
 		$req->execute(array($_SESSION['idProfil']));
 
@@ -46,14 +46,11 @@ include('connectBDD.php');
 			echo '</div>';
 		}
 		$req->closeCursor();
-	?>
+		?>
 
-<!-- 	#####################################################################################################################################
-	Faudrait charger toutes les transformations que le gars à upload, et il peut les supprimer si il veut, dans un joli tableau bootstrap
-	#####################################################################################################################################
- -->
-	</article> 
+		<h1>Faudrait charger toutes les transformations que le gars à upload, et il peut les supprimer si il veut, dans un joli tableau bootstrap</h1>
+</article> 
 
-	<?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
 </body>
 </html>
