@@ -8,7 +8,7 @@ if(!isset($_SESSION['pseudo'])){
 }
 
 if(!isset($_POST)){
-	header('Location: index.php')
+	header('Location: index.php');
 	exit();
 }
 
