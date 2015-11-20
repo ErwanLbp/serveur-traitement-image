@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2015 at 08:54 
+-- Generation Time: Nov 20, 2015 at 09:40 
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -36,7 +36,7 @@ CREATE TABLE `connectes` (
 --
 
 INSERT INTO `connectes` (`ip`, `timestamp`) VALUES
-('127.0.0.1', 1447919471);
+('127.0.0.1', 1448052007);
 
 -- --------------------------------------------------------
 
@@ -50,13 +50,6 @@ CREATE TABLE `images` (
   `auteur` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `chemin`, `auteur`, `nom`) VALUES
-(2, 'sauvegardes/admin/Lena.ppm', 2, 'Lena.ppm');
 
 -- --------------------------------------------------------
 
@@ -86,7 +79,11 @@ INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
 (9, 'Francois', ''),
 (10, 'Alexis', '1'),
 (11, 'Julien', 'caca'),
-(12, 'Alexis', 'alexis');
+(12, 'Alexis', 'alexis'),
+(13, 'Gator', ''),
+(14, 'Jaba', ''),
+(15, 'Nat', ''),
+(17, 'Er', '');
 
 -- --------------------------------------------------------
 
@@ -96,11 +93,10 @@ INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
 
 CREATE TABLE `transformations` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL DEFAULT '',
+  `nom` varchar(255) NOT NULL DEFAULT 'no_name',
+  `extension` varchar(10) NOT NULL DEFAULT 'egal',
   `auteur` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL DEFAULT '',
-  `dateCreation` date NOT NULL,
-  `chemin` varchar(255) NOT NULL DEFAULT ''
+  `description` varchar(255) NOT NULL DEFAULT 'no_description'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -135,17 +131,17 @@ ALTER TABLE `transformations`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `transformations`
 --
 ALTER TABLE `transformations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- Constraints for dumped tables
 --
