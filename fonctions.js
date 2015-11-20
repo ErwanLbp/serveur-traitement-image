@@ -1,20 +1,20 @@
-function afficherCacherRedimCustom(id1){
-	var redim = document.getElementById('redim');
-	var masqueCustom = document.getElementById('masqueCustom');
+function afficherCacherSaveNew(id1){
+	var nvlTransfo = document.getElementById('nvlTransfo');
+	var sauvegarde = document.getElementById('sauvegarde');
 
-	if(id1 == 'redim'){
-		if(redim.style.display == "none")
-			redim.style.display = "block";
+	if(id1 == 'nvlTransfo'){
+		if(nvlTransfo.style.display == "none")
+			nvlTransfo.style.display = "block";
 		else
-			redim.style.display = "none";
-		masqueCustom.style.display = "none";
+			nvlTransfo.style.display = "none";
+		sauvegarde.style.display = "none";
 	}
-	if(id1 == 'masqueCustom'){
-		if(masqueCustom.style.display == "none")
-			masqueCustom.style.display = "block";
+	if(id1 == 'sauvegarde'){
+		if(sauvegarde.style.display == "none")
+			sauvegarde.style.display = "block";
 		else
-			masqueCustom.style.display = "none";
-		redim.style.display = "none";
+			sauvegarde.style.display = "none";
+		nvlTransfo.style.display = "none";
 	}
 }
 

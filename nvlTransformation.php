@@ -12,40 +12,31 @@ if(!isset($_POST)){
 	exit();
 }
 
-if(!isset($_SESSION['cheminImage'])){
-	header('Location: index.php');
-	exit();
-}
-
 include('connectBDD.php');
 
-
-$dossierDest = 'sauvegardes/'.$_SESSION['pseudo'];
-$nomComplet = $_POST['nomImage'].$_POST['extension'];
-$req = $bdd->prepare('SELECT ima.nom FROM profil pro, images ima WHERE pro.idProfil=ima.auteur AND pro.idProfil=? AND ima.nom=?');
-$req->execute(array($_SESSION['idProfil'],$nomComplet));
+$req = $bdd->prepare('SELECT tra.nom FROM transformations tra WHERE tra.nom=?');
+$req->execute(array($_POST['nomTransfo']));
 
 $donnee = $req->fetch();
 $req->closeCursor();
 
 if($donnee)
-	$resultat = 'Vous avez déja nommé une image <span style="color:#C85A17">'.$_POST['nomImage'].$_POST['extension'].'</span>'.'. Trouvez un autre nom';
+	$resultat = 'Vous avez déja nommé une transformation <span style="color:#C85A17">'.$_POST['nomTransfo'].'</span>'.'. Trouvez un autre nom';
 else{
-	$chemin = $dossierDest.'/'.$_POST['nomImage'].$_POST['extension'];
+	$chemin = 'transformations/'.$_POST['nomTransfo'];
 
-	if(!is_dir($dossierDest)){
-		mkdir('sauvegardes/'.$_SESSION['pseudo']);
-		exec('chmod 777 sauvegardes/'.$_SESSION['pseudo']);
+	if(!is_dir('transformations/')){
+		mkdir('transformations/');
+		exec('chmod 777 transformations/');
 	}
 
-	if(copy($_SESSION['cheminImage'], $chemin)){
-		$resultat = 'Bravo l\'image a été sauvegardée sur le serveur avec succès au nom : <span style="color:#C85A17">'.$_POST['nomImage'].$_POST['extension'].'</span>';
-		$req = $bdd->prepare('INSERT INTO images VALUES (\'\',?,?,?)');
-		$req->execute(array($chemin, $_SESSION['idProfil'], $nomComplet));
-		exec('convert '.$chemin.' '.mb_strcut($chemin, 0, strlen($chemin)-4).'.jpg');
+	if(move_uploaded_file($_FILES['transformation']['tmp_name'], $chemin)){
+		$resultat = 'Bravo la transformation a été sauvegardée sur le serveur avec succès au nom : <span style="color:#C85A17">'.$_POST['nomTransfo'].'</span>';
+		$req = $bdd->prepare('INSERT INTO transformations VALUES (\'\',?,?,?)');
+		$req->execute(array($_POST['nomTransfo'], $_SESSION['idProfil'], $_POST['description']));
 	}
 	else
-		$resultat = 'Echec de la sauvegarde !';
+		$resultat = 'Echec de l\'upload de la transformation !';
 }
 ?>
 
