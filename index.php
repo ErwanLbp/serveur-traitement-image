@@ -133,7 +133,6 @@ include('connectBDD.php');
 		</div>
 
 		<?php 
-		print_r($_SESSION);
 		if(!isset($_SESSION['cheminImageJPG']))
 			echo "<script type='text/javascript'>afficherCacher('save')</script>";
 		?>
