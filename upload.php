@@ -12,8 +12,7 @@ if(isset($_SESSION['cheminImage'])){
 	exit();
 }
 
-$dossier = 'Images/';
-$_SESSION['cheminImage'] = $dossier.$_FILES['photo']['name'];
+$_SESSION['cheminImage'] = 'Images/'.$_FILES['photo']['name'];
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
 
@@ -23,7 +22,7 @@ if(!in_array($extension, $extensionsPossible)){
 }
 
 if($erreur == ""){
-	if(move_uploaded_file($_FILES['photo']['tmp_name'], $dossier.basename($_SESSION['cheminImage']))){
+	if(move_uploaded_file($_FILES['photo']['tmp_name'], $_SESSION['cheminImage'])){
 		exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg');
 		$_SESSION['cheminImageJPG'] = mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg';
 		header('Location: index.php');
