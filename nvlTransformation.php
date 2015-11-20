@@ -31,9 +31,10 @@ else{
 	}
 
 	if(move_uploaded_file($_FILES['transformation']['tmp_name'], $chemin)){
+		exec('chmod 777 '.$chemin);
 		$resultat = 'Bravo la transformation a été sauvegardée sur le serveur avec succès au nom : <span style="color:#C85A17">'.$_POST['nomTransfo'].'</span>';
-		$req = $bdd->prepare('INSERT INTO transformations VALUES (\'\',?,?,?)');
-		$req->execute(array($_POST['nomTransfo'], $_SESSION['idProfil'], $_POST['description']));
+		$req = $bdd->prepare('INSERT INTO transformations VALUES (\'\',?,?,?,?)');
+		$req->execute(array($_POST['nomTransfo'], $_POST['extension'], $_SESSION['idProfil'], $_POST['description']));
 	}
 	else
 		$resultat = 'Echec de l\'upload de la transformation !';

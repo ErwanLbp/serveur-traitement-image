@@ -36,11 +36,11 @@ include('connectBDD.php');
 				<div class="col-lg-3" style="text-align:center">
 					<div class="btn-group-vertical">
 						<?php
-						$req = $bdd->prepare('SELECT pro.pseudo, tra.nom, tra.id, tra.description FROM transformations tra, profil pro WHERE tra.auteur=pro.idProfil');
+						$req = $bdd->prepare('SELECT pro.pseudo, tra.nom, tra.description FROM transformations tra, profil pro WHERE tra.auteur=pro.idProfil');
 						$req->execute(array($_SESSION['idProfil']));
 
 						while($donnee = $req->fetch())
-							echo '<div class="btn-group"><input class="btn btn-primary" type ="submit" name ="algorithme" title ="Par: '.$donnee['pseudo'].'; '.$donnee['description'].'" value ="'.$donnee['nom'].'"></div>';
+							echo '<div class="btn-group"><input class="btn btn-primary" type ="submit" name="algorithme" title="Par: '.$donnee['pseudo'].'; '.$donnee['description'].'" value="'.$donnee['nom'].'"></div>';
 						$req->closeCursor();
 						?>
 					</div>
@@ -49,7 +49,7 @@ include('connectBDD.php');
 
 			<div class="col-lg-6">
 				<div class="row">
-					<input class="btn btn-danger btn-xs" type="button" name="reset" value="Reset" onclick="document.location.href='reset.php'">
+					<input class="btn btn-danger btn-xs" type="button" name="reset" title="Supprimer l'image sélectionnée" value="Reset" onclick="document.location.href='reset.php'">
 					<form method="post" action="upload.php" enctype="multipart/form-data" id="chercherImage" style="display:inline-block;">
 						<input type ="file" name ="photo" onchange="this.form.submit()">
 					</form>
@@ -66,54 +66,74 @@ include('connectBDD.php');
 				</div>
 			</div>
 
-			<form method="post" action="execTransfo.php" enctype="multipart/form-data">
-				<div class="col-lg-3" style="text-align:center">
-					<input class="btn btn-primary btn-block" type ="button" name ="algorithme" title ="Redimensionnement" id="redimensionnement"  value ="Redimensionnement" onclick=afficherCacher('redim')>
-					<div id="redim" style="display:none" class="well">
-						<div class="form-group">
-							<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-							<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-						</div>
-						<div class="form-group">
-							<div class="row">Abscisse 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-							<div class="row">Ordonné 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-						</div>
-						<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Redimensionnement" value ="Redimensionnement">
+			<div class="col-lg-3">
+				<div class="row">
+					<div class="col-lg-12" style="text-align:center">
+						<a class="btn btn-primary btn-block" name="algorithme" title="Redimensionner l'image" onclick=afficherCacher('redim')>Redimensionnement</a>
+						<form method="post" action="execTransfo.php" enctype="multipart/form-data">
+							<div id="redim" style="display:none" class="well">
+								<div class="form-group">
+									<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								</div>
+								<div class="form-group">
+									<div class="row">Abscisse 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+								</div>
+								<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Redimensionnement" value ="Redimensionnement">
+							</div>
+						</form>
 					</div>
 				</div>
-			</form>
-
-			<div class="col-lg-3" style="text-align:center">
-				<a class="btn btn-info btn-block" title="Charger une nouvelle transformation sur le serveur" onclick="afficherCacherSaveNew('nvlTransfo')">Nouvelle transformation</a>
-				<form class="well" method="post" action="nvlTransformation.php" enctype="multipart/form-data" style="display:none" id="nvlTransfo" style="display:inline-block;">
-					<input type ="file" name ="transformation">
-					<label for="nomTransfo">Renommer la transformation: </label>
-					<input id="nomTransfo" type="text" maxlength="50" value="<?php if(isset($_SESSION['pseudo'])) echo 'Transfo_'.$_SESSION['pseudo'];?>" name="nomTransfo">
-					<div class="form-group">
-						<label for="description">Description: </label>
-						<input id="description" class="form-control" type="text" maxlength="200" value="Description" name="description">
+				<div class="row">
+					<div class="col-lg-12">
+						<a class="btn btn-info btn-block" title="Charger une nouvelle transformation sur le serveur" onclick="afficherCacherSaveNew('nvlTransfo')">Nouvelle transformation</a>
+						<form class="well" method="post" action="nvlTransformation.php" enctype="multipart/form-data" style="display:none" id="nvlTransfo" style="display:inline-block;">
+							<input type ="file" name ="transformation">
+							<div class="form-group">
+								<label for="nomTransfo">Renommer la transformation: </label>
+							<input id="nomTransfo" type="text" maxlength="50" value="<?php if(isset($_SESSION['pseudo'])) echo 'Transfo_'.$_SESSION['pseudo'];?>" name="nomTransfo">
+							</div>
+							<div class="form-group">
+								<label for="description">Description: </label>
+								<input id="description" class="form-control" type="text" maxlength="200" value="Description" name="description">
+							</div>
+							<div class="form-group">
+								<label for="extension">Extension de sortie: </label>
+								<select id="extension" class="form-control" name="extension">
+									<option value="egal">Ne change pas</option>
+									<option value=".ppm">.ppm</option>
+									<option value=".pgm">.pgm</option>
+									<option value=".pbm">.pbm</option>
+								</select>
+							</div>
+							<input type="submit" class="btn btn-success btn-sm" value="Charger !">
+						</form>	
 					</div>
-					<input type="submit" class="btn btn-success btn-sm" value="Charger !">
-				</form>	
+				</div>
+				<div id="save">
+					<div class="row">
+						<div class="col-lg-12">
+							<a class="btn btn-success btn-block" title="Sauvegarder l'image sur le serveur" onclick="afficherCacherSaveNew('sauvegarde')">Sauvegarder</a>
+							<form class="well" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
+								<label for="nomImage">Renommer l'image: </label>
+								<input id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+								<input type="hidden" name="extension" value="<?php if(isset($_SESSION['cheminImage'])) echo mb_strcut($_SESSION['cheminImage'], strlen($_SESSION['cheminImage'])-4 , strlen($_SESSION['cheminImage']));?>">
+								<input type="submit" class="btn btn-success btn-sm" value="OK !">
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<a class="btn btn-warning btn-block" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'">Telecharger</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="row" id="save">
-			<div class="col-lg-5">
-				<div class="btn-group">
-					<a class="btn btn-warning" title="Télécharger l'image sur votre ordinateur" onclick="document.location.href='download.php'">Telecharger</a>
-					<a class="btn btn-success" title="Sauvegarder l'image sur le serveur" onclick="afficherCacherSaveNew('sauvegarde')">Sauvegarder</a>
-				</div>
-				<form class="well" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
-					<label for="nomImage">Renommer l'image: </label>
-					<input id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
-					<input type="hidden" name="extension" value="<?php if(isset($_SESSION['cheminImage'])) echo mb_strcut($_SESSION['cheminImage'], strlen($_SESSION['cheminImage'])-4 , strlen($_SESSION['cheminImage']));?>">
-					<input type="submit" class="btn btn-success btn-sm" value="OK!">
-				</form>
-
-			</div>
-		</div>
 		<?php 
+		print_r($_SESSION);
 		if(!isset($_SESSION['cheminImageJPG']))
 			echo "<script type='text/javascript'>afficherCacher('save')</script>";
 		?>

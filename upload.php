@@ -16,7 +16,6 @@ $_SESSION['cheminImage'] = 'Images/'.$_FILES['photo']['name'];
 $extensionsPossible = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
 
-
 if(!in_array($extension, $extensionsPossible)){
 	$erreur = 'Rentrez un type ppm, pbm ou pgm';
 }
