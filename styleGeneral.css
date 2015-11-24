@@ -4,8 +4,8 @@ article{
 	min-height   : 700px;
 }
 
-[class*="col-"],header,footer {
+/*[class*="col-"],header,footer {
 			background-color: lightgreen;
 			border: 2px solid black;
 			border-radius: 6px;
-		}
+		}*/

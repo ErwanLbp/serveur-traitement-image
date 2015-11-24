@@ -29,7 +29,7 @@ $donnee = $req->fetch();
 $req->closeCursor();
 
 if($donnee)
-	$resultat = 'Vous avez déja nommé une image <span style="color:#C85A17">'.$_POST['nomImage'].$_POST['extension'].'</span>'.'. Trouvez un autre nom';
+	$resultat = 'Vous avez déja nommé une image <span style="color:#D90115">'.$_POST['nomImage'].$_POST['extension'].'</span>'.'. Trouvez un autre nom';
 else{
 	$chemin = $dossierDest.'/'.$_POST['nomImage'].$_POST['extension'];
 

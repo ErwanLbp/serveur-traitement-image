@@ -14,12 +14,18 @@ if(!isset($_GET)){
 
 include('connectBDD.php');
 
-//$req = $bdd->prepare('DELETE FROM images WHERE id =?');
-//$req->execute(array($_POST['idImage']));
+$req = $bdd->prepare('SELECT * FROM transformations WHERE id =? AND auteur=?');
+$req->execute(array($_GET['id'],$_SESSION['idProfil']));
+$donnee = $req->fetch();
+$req->closeCursor();
 
-//requete pour savoir si c'est bien une des transfo du bon gars (nom et id)
-//requete pour supprimer dans la bdd la transfo
-//Suppression dans le dossier de transfo
+if($donnee){
+	
+	unlink('transformations/'.$donnee['nom']);
+
+	$req = $bdd->prepare('DELETE FROM transformations WHERE id =?');
+	$req->execute(array($_GET['id']));
+}
 
 header('Location: profil.php');
 ?>

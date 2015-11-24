@@ -39,8 +39,6 @@ if($donnee){
 	$req = $bdd->prepare('DELETE FROM images WHERE id =?');
 	$req->execute(array($_GET['id']));
 }
-else
-	$resultat = "Vous ne pouvez pas faire ca.";
 
 header('Location: index.php');
 ?>
