@@ -1,40 +1,11 @@
-*{
-}
-
 article{
 	margin-top   : 10px;
 	margin-bottom: 10px;
 	min-height   : 700px;
 }
 
-.gauche{
-	float       : left;
-	width       : 33.3%;
-	height      : inherit;
-	text-align  : left;
-	height      : inherit;
-	padding-left: 10px;
-}
-
-.centre{
-	height      : inherit;
-	width       : 33.3%;
-	text-align  : center;
-	padding     : 5px;
-}
-
-.droite{
-	height       : inherit;
-	float        : right;
-	width        : 33.3%;
-	text-align   : right;
-	height       : inherit;
-	padding-right: 10px;
-}
-
-
-/*[class*="col-"],header,footer {
+[class*="col-"],header,footer {
 			background-color: lightgreen;
 			border: 2px solid black;
 			border-radius: 6px;
-		}*/
+		}

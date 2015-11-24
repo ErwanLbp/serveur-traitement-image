@@ -31,26 +31,44 @@ include('connectBDD.php');
 
 	<article class="row" style="margin-top:5%;">
 
-		<?php 
-		$req = $bdd->prepare('SELECT ima.chemin, ima.id FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.idProfil=?');
-		$req->execute(array($_SESSION['idProfil']));
+		<div class="col-lg-6">
+			<?php 
+			$req = $bdd->prepare('SELECT ima.chemin, ima.id, ima.nom FROM images ima, profil pro WHERE ima.auteur=pro.idProfil AND pro.idProfil=?');
+			$req->execute(array($_SESSION['idProfil']));
 
-		while($donnee = $req->fetch()){
-			echo '<div class="col-lg-2">';
-			echo '<img class="img-rounded" src="'.mb_strcut($donnee['chemin'], 0, strlen($donnee['chemin'])-4).'.jpg" alt="'.$donnee['chemin'].'" >';
-			echo '<form method="post" action="supprimer.php" enctype="multipart/form-data">';
-			echo '	<input type="hidden" name="chemin" value="'.$donnee['chemin'].'">';
-			echo '	<input type="hidden" name="idImage" value="'.$donnee['id'].'">';
-			echo '	<input type="submit" value="Supprimer">';
-			echo '</form>';
-			echo '</div>';
-		}
-		$req->closeCursor();
-		?>
+			while($donnee = $req->fetch()){
+				echo '<div class="col-lg-4">';
+				echo '<a href="utiliserImage.php?id='.$donnee['id'].'"><img title="'.$donnee['nom'].'" style="max-width:100%; max-height:100%" class="img-rounded" src="'.mb_strcut($donnee['chemin'], 0, strlen($donnee['chemin'])-4).'.jpg" alt="'.$donnee['chemin'].'" ></a>';
+				echo '<form method="post" action="supprimer.php" enctype="multipart/form-data">';
+				echo '	<input type="hidden" name="chemin" value="'.$donnee['chemin'].'">';
+				echo '	<input type="hidden" name="idImage" value="'.$donnee['id'].'">';
+				echo '	<input class="btn btn-danger btn-xs" type="submit" value="X" style="position:absolute; top:0">';
+				echo '</form>';
+				echo '</div>';
+			}
+			$req->closeCursor();
+			?>
+		</div>
+		<div class="col-lg-6 table-responsive">
+			<table class="table table-bordered table-striped table-condensed">
+				<caption><h4>Les transformations que vous avez chargé</h4></caption>
+				<thead>
+					<tr><th>Id</th><th>Nom</th><th>Description</th><th>Extension</th><th></th></tr>
+				</thead>
+				<tbody>
+					<?php 
+					$req = $bdd->prepare('SELECT tra.id, tra.nom, tra.description, tra.extension FROM transformations tra, profil pro WHERE tra.auteur=pro.idProfil AND pro.idProfil=?');
+					$req->execute(array($_SESSION['idProfil']));
 
-		<h1>Faudrait charger toutes les transformations que le gars à upload, et il peut les supprimer si il veut, dans un joli tableau bootstrap</h1>
-</article> 
+					while($donnee = $req->fetch())
+						echo '<tr><td>'.$donnee['id'].'</td><td>'.$donnee['nom'].'</td><td>'.$donnee['description'].'</td><td>'.$donnee['extension'].'</td><td><a class="btn btn-danger btn-xs" href="supprimerSaTransfo.php?id='.$donnee['id'].'">X</a></td></tr>';
+					$req->closeCursor();
+					?>
+				</tbody>
+			</table>
+		</div>
+	</article> 
 
-<?php include('footer.php'); ?>
+	<?php include('footer.php'); ?>
 </body>
 </html>

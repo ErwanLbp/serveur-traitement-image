@@ -44,7 +44,7 @@ if(isset($_POST['pseudo'])){
 	<div class="container">
 		<?php include ('header.php'); ?>
 
-		<article class="row">
+		<article class="row" style="margin-top:10%;">
 			<div class="col-lg-offset-4 col-sm-4 formulaire">
 				<form method="post" action="connexion.php" class="well">
 					<legend>Connexion</legend>

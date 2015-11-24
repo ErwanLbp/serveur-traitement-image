@@ -92,7 +92,7 @@ include('connectBDD.php');
 							<input type ="file" name ="transformation">
 							<div class="form-group">
 								<label for="nomTransfo">Renommer la transformation: </label>
-							<input pattern="[^\s.\/]" placeholder="Sans espace ni slash SVP" required id="nomTransfo" type="text" maxlength="50" name="nomTransfo">
+							<input placeholder="Sans espace ni slash SVP" required id="nomTransfo" type="text" maxlength="50" name="nomTransfo">
 							</div>
 							<div class="form-group">
 								<label for="description">Description: </label>
@@ -117,7 +117,7 @@ include('connectBDD.php');
 							<a class="btn btn-success btn-block" title="Sauvegarder l'image sur le serveur" onclick="afficherCacherSaveNew('sauvegarde')">Sauvegarder</a>
 							<form class="well" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
 								<label for="nomImage">Renommer l'image: </label>
-								<input pattern="[^\s.\/]" placeholder="Sans espace ni slash SVP" id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+								<input placeholder="Sans espace ni slash SVP" id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
 								<input type="hidden" name="extension" value="<?php if(isset($_SESSION['cheminImage'])) echo mb_strcut($_SESSION['cheminImage'], strlen($_SESSION['cheminImage'])-4 , strlen($_SESSION['cheminImage']));?>">
 								<input type="submit" class="btn btn-success btn-sm" value="OK !">
 							</form>
