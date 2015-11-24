@@ -22,20 +22,6 @@ include('connectBDD.php');
 $resultat = "";
 
 if(isset($_POST['action'])){
-	if($_POST['action'] == 'transfo'){
-
-		$resultat = "Suppression : </br>";
-
-		$req = $bdd->query('SELECT nom FROM transformations');
-		while($donnee = $req->fetch()){
-			unlink('transformations/'.$donnee['nom']);
-			$resultat .= $donnee['nom'].'</br>';
-		}
-		$req->closeCursor();
-
-		$bdd->exec('DELETE FROM transformations');
-	}
-
 
 }
 
@@ -59,26 +45,24 @@ if(isset($_POST['action'])){
 	<?php include('header.php'); ?>	
 	
 	<article class="row" style="margin-top:5%;">
-		<div class="col-lg-3">
-			<form method="post" action="admin.php" class="well">
-				<input type="hidden" name="action" value="transfo">
-				<input class="btn btn-danger btn-block" type="submit" value="Reset transformations" title="Suppime toutes les transformations chargées sur le serveur">
-			</form>
-		</div>
+		
+		<div class="col-lg-12 table-responsive">
+			<table class="table table-bordered table-striped table-condensed">
+				<caption><h4></h4></caption>
+				<thead>
+					<tr><th>Id</th><th>Pseudo</th><th>Mdp</th><th></th></tr>
+				</thead>
+				<tbody>
+					<?php
+					$req = $bdd->query('SELECT idProfil,pseudo,mdp FROM profil');
 
-		<div class="col-lg-3">
-			<form method="post" action="admin.php" class="well">
-				<input type="hidden" name="action" value="images">
-				<input class="btn btn-danger btn-block" type="submit" value="Reset images" title="Suppime toutes les images chargées sur le serveur">
-			</form>
+					while($donnee = $req->fetch())
+						echo '<tr><td>'.$donnee['idProfil'].'</td><td>'.$donnee['pseudo'].'</td><td>'.$donnee['mdp'].'</td><td><a class="btn btn-danger btn-xs" href="admin.php?idProfil='.$donnee['idProfil'].'">X</a></td></tr>';
+					$req->closeCursor();
+					?>
+				</tbody>
+			</table>
 		</div>
-	
-		<div class="row">
-			<div class="col-lg-12">
-				<?php echo $resultat; ?>
-			</div>
-		</div>
-	
 
 	</article>
 	
