@@ -25,8 +25,8 @@ else
 
 $nomSansExt = basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));
 
-if($_POST['algorithme'] == "redimensionnement")
-	exec('./transformations/redimensionnement '.basename($_SESSION['cheminImage']).' redimensionnement_'.$nomSansExt.$extension.' '.$_POST['x1'].' '.$_POST['y1'].' '.$_POST['x2'].' '.$_POST['y2']);
+if($_POST['algorithme'] == "Redimensionnement")
+	exec('./transformations/Redimensionnement '.basename($_SESSION['cheminImage']).' Redimensionnement_'.$nomSansExt.$extension.' '.$_POST['x1'].' '.$_POST['y1'].' '.$_POST['x2'].' '.$_POST['y2']);
 else
 	exec('./transformations/'.$_POST['algorithme'].' '.basename($_SESSION['cheminImage']).' '.$_POST['algorithme'].'_'.$nomSansExt.$extension);
 
