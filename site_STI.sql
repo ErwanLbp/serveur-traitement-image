@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 20, 2015 at 09:40 
+-- Generation Time: Nov 24, 2015 at 11:11 
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -36,7 +36,7 @@ CREATE TABLE `connectes` (
 --
 
 INSERT INTO `connectes` (`ip`, `timestamp`) VALUES
-('127.0.0.1', 1448052007);
+('127.0.0.1', 1448359861);
 
 -- --------------------------------------------------------
 
@@ -100,6 +100,25 @@ CREATE TABLE `transformations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `transformations`
+--
+
+INSERT INTO `transformations` (`id`, `nom`, `extension`, `auteur`, `description`) VALUES
+(6, 'symetrieV', 'egal', 2, 'Applique une symÃ©trie verticale'),
+(7, 'symetrieH', 'egal', 2, 'Applique une symÃ©trie horizontale'),
+(8, 'reductionBruit', '.pgm', 2, 'Reduit le bruit ambiant'),
+(9, 'niveauGris', '.pgm', 2, 'Met l''image en niveaux de gris'),
+(10, 'negatif', 'egal', 2, 'Applique le filtre nÃ©gatif'),
+(11, 'lissage', 'egal', 2, 'Lisse l''image'),
+(12, 'laplacien', '.pgm', 2, 'Applique le masque laplacien'),
+(13, 'gradientSobel', 'egal', 2, 'Fait le gradient de Sobel'),
+(14, 'gradientSimple', 'egal', 2, 'Fait le gradient Simple'),
+(15, 'detectionContoursSobel', '.pbm', 2, 'Detecte les contours avec Sobel'),
+(16, 'detectionContoursLaplacien', '.pbm', 2, 'Detecte les contours avec le Laplacien'),
+(17, 'binarisation', '.pbm', 2, 'Binarise l''image'),
+(18, 'ameliorationConstraste', 'egal', 2, 'Ameliore le contraste de l''image');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -131,7 +150,7 @@ ALTER TABLE `transformations`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `profil`
 --
@@ -141,7 +160,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `transformations`
 --
 ALTER TABLE `transformations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- Constraints for dumped tables
 --

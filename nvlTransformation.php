@@ -21,7 +21,7 @@ $donnee = $req->fetch();
 $req->closeCursor();
 
 if($donnee)
-	$resultat = 'Vous avez déja nommé une transformation <span style="color:#C85A17">'.$_POST['nomTransfo'].'</span>'.'. Trouvez un autre nom';
+	$resultat = 'Vous avez déja nommé une transformation <span style="color:#D90115">'.$_POST['nomTransfo'].'</span>'.'. Trouvez un autre nom';
 else{
 	$chemin = 'transformations/'.$_POST['nomTransfo'];
 
