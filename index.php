@@ -73,12 +73,12 @@ include('connectBDD.php');
 						<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 							<div id="redim" style="display:none" class="well">
 								<div class="form-group">
-									<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-									<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Abscisse 1er point <div class="pull-right input-group col-lg-1"><input required type ="number" name ="x1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 1er point <div class="pull-right input-group col-lg-1"><input required type ="number" name ="y1" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
 								</div>
 								<div class="form-group">
-									<div class="row">Abscisse 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
-									<div class="row">Ordonné 2e point <div class="pull-right input-group col-lg-1"><input type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Abscisse 2e point <div class="pull-right input-group col-lg-1"><input required type ="number" name ="x2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
+									<div class="row">Ordonné 2e point <div class="pull-right input-group col-lg-1"><input required type ="number" name ="y2" value ="0" min="0" style="text-align:right"><span class="input-group-addon">px</span></div></div>
 								</div>
 								<input class="btn btn-primary" type ="submit" name ="algorithme" title ="Redimensionnement" value ="Redimensionnement">
 							</div>
@@ -92,7 +92,7 @@ include('connectBDD.php');
 							<input type ="file" name ="transformation">
 							<div class="form-group">
 								<label for="nomTransfo">Renommer la transformation: </label>
-							<input id="nomTransfo" type="text" maxlength="50" value="<?php if(isset($_SESSION['pseudo'])) echo 'Transfo_'.$_SESSION['pseudo'];?>" name="nomTransfo">
+							<input pattern="[^\s.\/]" placeholder="Sans espace ni slash SVP" required id="nomTransfo" type="text" maxlength="50" name="nomTransfo">
 							</div>
 							<div class="form-group">
 								<label for="description">Description: </label>
@@ -117,7 +117,7 @@ include('connectBDD.php');
 							<a class="btn btn-success btn-block" title="Sauvegarder l'image sur le serveur" onclick="afficherCacherSaveNew('sauvegarde')">Sauvegarder</a>
 							<form class="well" method="post" action="sauvegarder.php" enctype="multipart/form-data" style="display:none" id="sauvegarde" style="display:inline-block;">
 								<label for="nomImage">Renommer l'image: </label>
-								<input id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
+								<input pattern="[^\s.\/]" placeholder="Sans espace ni slash SVP" id="nomImage" type="text" maxlength="50" value="<?php if(isset($_SESSION['cheminImage'])) echo basename(mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4));?>" name="nomImage">
 								<input type="hidden" name="extension" value="<?php if(isset($_SESSION['cheminImage'])) echo mb_strcut($_SESSION['cheminImage'], strlen($_SESSION['cheminImage'])-4 , strlen($_SESSION['cheminImage']));?>">
 								<input type="submit" class="btn btn-success btn-sm" value="OK !">
 							</form>

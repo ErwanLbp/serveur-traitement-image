@@ -52,14 +52,14 @@ if(isset($_POST['pseudo'])){
 
 					<div class="form-group">
 						<label for="pseudo">Pseudo</label>
-						<input class="form-control" type="text" id="pseudo" name="pseudo"/>
+						<input required class="form-control" type="text" id="pseudo" name="pseudo"/>
 					</div>
 					<div class="form-group">
 						<label for="mdp"><br>Mot de passe</label>
 						<input class="form-control" type="password" id="mdp" name="mdp"/>
 					</div>
 					<input type="submit" class="btn btn-primary" value="Connexion">
-					<input type="button" class="btn btn-success" value="Inscription" onclick="document.location.href='inscription.php'">
+					<input required type="button" class="btn btn-success" value="Inscription" onclick="document.location.href='inscription.php'">
 				</form>
 			</div>
 		</article>

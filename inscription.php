@@ -64,11 +64,11 @@ if(isset($_POST['pseudo']) and $_POST['pseudo'] != ""){
 
 					<div class="form-group">
 						<label for="pseudo">Pseudo</label>
-						<input class="form-control" type="text" id="pseudo" name="pseudo"/>
+						<input required class="form-control" type="text" id="pseudo" name="pseudo"/>
 					</div>
 					<div class="form-group">
 						<label for="mdp"><br>Mot de passe</label>
-						<input class="form-control" type="password" id="mdp" name="mdp"/>
+						<input required class="form-control" type="password" id="mdp" name="mdp"/>
 					</div>
 					<input type="submit" class="btn btn-primary" value="Inscription">
 				</form>
