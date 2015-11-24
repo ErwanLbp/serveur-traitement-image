@@ -38,12 +38,8 @@ include('connectBDD.php');
 
 			while($donnee = $req->fetch()){
 				echo '<div class="col-lg-4">';
-				echo '<a href="utiliserImage.php?id='.$donnee['id'].'"><img title="'.$donnee['nom'].'" style="max-width:100%; max-height:100%" class="img-rounded" src="'.mb_strcut($donnee['chemin'], 0, strlen($donnee['chemin'])-4).'.jpg" alt="'.$donnee['chemin'].'" ></a>';
-				echo '<form method="post" action="supprimer.php" enctype="multipart/form-data">';
-				echo '	<input type="hidden" name="chemin" value="'.$donnee['chemin'].'">';
-				echo '	<input type="hidden" name="idImage" value="'.$donnee['id'].'">';
-				echo '	<input class="btn btn-danger btn-xs" type="submit" value="X" style="position:absolute; top:0">';
-				echo '</form>';
+				echo '<a href="utiliserImage.php?id='.$donnee['id'].'"><img title="'.$donnee['nom'].'" style="width:100%" class="img-rounded" src="'.mb_strcut($donnee['chemin'], 0, strlen($donnee['chemin'])-4).'.jpg" alt="'.$donnee['chemin'].'" ></a>';
+				echo '<a class="btn btn-danger btn-xs" style="position:absolute; top:0; left:15px" href="supprimerSonImage.php?id='.$donnee['id'].'">X</a>';
 				echo '</div>';
 			}
 			$req->closeCursor();
