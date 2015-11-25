@@ -14,8 +14,15 @@ if(!isset($_GET)){
 
 include('connectBDD.php');
 
-$req = $bdd->prepare('SELECT * FROM transformations WHERE id =? AND auteur=?');
-$req->execute(array($_GET['id'],$_SESSION['idProfil']));
+if($_SESSION['pseudo'] != 'admin'){
+	$req = $bdd->prepare('SELECT * FROM transformations WHERE id =? AND auteur=?');
+	$req->execute(array($_GET['id'],$_SESSION['idProfil']));
+}
+else {
+	$req = $bdd->prepare('SELECT * FROM transformations WHERE id =?');
+	$req->execute(array($_GET['id']));
+}
+
 $donnee = $req->fetch();
 $req->closeCursor();
 
