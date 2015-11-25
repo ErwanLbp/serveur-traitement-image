@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2015 at 11:11 
+-- Generation Time: Nov 25, 2015 at 10:34 
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -36,7 +36,7 @@ CREATE TABLE `connectes` (
 --
 
 INSERT INTO `connectes` (`ip`, `timestamp`) VALUES
-('127.0.0.1', 1448359861);
+('127.0.0.1', 1448444024);
 
 -- --------------------------------------------------------
 
@@ -50,6 +50,22 @@ CREATE TABLE `images` (
   `auteur` int(11) NOT NULL,
   `nom` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `chemin`, `auteur`, `nom`) VALUES
+(4, 'sauvegardes/admin/Sheldon.pgm', 2, 'Sheldon.pgm'),
+(18, 'sauvegardes/admin/detectionContoursLaplacien_Sheldon.pbm', 2, 'detectionContoursLaplacien_Sheldon.pbm'),
+(19, 'sauvegardes/admin/gradientSimple_Sheldon.pgm', 2, 'gradientSimple_Sheldon.pgm'),
+(26, 'sauvegardes/Vince/Lena.ppm', 23, 'Lena.ppm'),
+(27, 'sauvegardes/Tom/gradientSobel_Clown.ppm', 24, 'gradientSobel_Clown.ppm'),
+(28, 'sauvegardes/Alex/gradientSobel_Sheldon.pgm', 25, 'gradientSobel_Sheldon.pgm'),
+(29, 'sauvegardes/Alex/Lena.ppm', 25, 'Lena.ppm'),
+(30, 'sauvegardes/Alex/gradientSimple_Lena.ppm', 25, 'gradientSimple_Lena.ppm'),
+(31, 'sauvegardes/Bob/clown.ppm', 3, 'clown.ppm'),
+(32, 'sauvegardes/Bob/negatif_Clown.ppm', 3, 'negatif_Clown.ppm');
 
 -- --------------------------------------------------------
 
@@ -71,7 +87,6 @@ INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
 (1, 'Erwan', 'azerty'),
 (2, 'admin', 'a1z2e3r4t5y6'),
 (3, 'Bob', '14753'),
-(4, 'Alex', '1234'),
 (5, 'Jean', 'bite'),
 (6, 'Anais', 'mdp'),
 (7, 'Melina', 'aqw'),
@@ -82,8 +97,9 @@ INSERT INTO `profil` (`idProfil`, `pseudo`, `mdp`) VALUES
 (12, 'Alexis', 'alexis'),
 (13, 'Gator', ''),
 (14, 'Jaba', ''),
-(15, 'Nat', ''),
-(17, 'Er', '');
+(23, 'Vince', 'aqwxsz'),
+(24, 'Tom', 'mlkj'),
+(25, 'Alex', '14753');
 
 -- --------------------------------------------------------
 
@@ -150,17 +166,17 @@ ALTER TABLE `transformations`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
-  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idProfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `transformations`
 --
 ALTER TABLE `transformations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- Constraints for dumped tables
 --
