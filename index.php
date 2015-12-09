@@ -69,7 +69,7 @@ include('connectBDD.php');
 			<div class="col-lg-3">
 				<div class="row">
 					<div class="col-lg-12" style="text-align:center">
-						<a class="btn btn-primary btn-block" name="algorithme" title="Redimensionner l'image" onclick=afficherCacher('redim')>Redimensionnement</a>
+						<a class="btn btn-primary btn-block" name="algorithme" title="Redimensionner l'image" onclick=afficherCacherSaveNew('redim')>Redimensionnement</a>
 						<form method="post" action="execTransfo.php" enctype="multipart/form-data">
 							<div id="redim" style="display:none" class="well">
 								<div class="form-group">
