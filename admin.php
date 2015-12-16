@@ -114,7 +114,27 @@ if(isset($_GET['idProfil']) && $_SESSION['idProfil'] != $_GET['idProfil']){
 				</tbody>
 			</table>
 		</div>
-
+		<div class="col-lg-4 table-responsive">
+			<table class="table table-bordered tabl-striped table-condensed">
+				<caption><h4>Utilisateurs connectés</h4</caption>
+				<thead>
+					<tr><th>IP</th><th>Pseudo</th>Id</th></tr>
+				<thead>
+				<tbody>
+				<?php
+				$req = $bdd->query('SELECT co.ip, pro.pseudo, pro.idProfil FROM connectes co, profil pro WHERE co.id = pro.idProfil (+)');
+				while($donnee = $req->fetch()){
+					echo '<tr><td>'.$donnee['ip'].'</td>';
+					if($donnee['idProfil'])
+						echo '<td>'.$donnee['pseudo'].'</td><td>'.$donnee['idProfil'].'</td></tr>';
+					else
+						echo '<td>Visiteur</td><td>Null</td></tr>';
+				}
+				$req->closeCursor();
+				?>
+				<tbody>
+			</table>
+		</div>
 
 	</article>
 	
