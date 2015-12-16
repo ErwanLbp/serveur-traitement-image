@@ -13,19 +13,27 @@ if(isset($_SESSION['cheminImage'])){
 }
 
 $_SESSION['cheminImage'] = 'Images/'.$_FILES['photo']['name'];
-$extensionsPossible = array('.ppm', '.pbm', '.pgm');
+$extensionsPossible = array('.ppm', '.pbm', '.pgm', '.jpg', '.jpeg', '.png', '.bmp', '.gif','.JPG', '.JPEG', '.PNG', '.BMP', '.GIF');
+$extensionPixmap = array('.ppm', '.pbm', '.pgm');
 $extension = strrchr($_FILES['photo']['name'], '.'); 
 
 $erreur = "";
 
 if(!in_array($extension, $extensionsPossible)){
-	$erreur = 'Rentrez un type ppm, pbm ou pgm';
+	$erreur = 'Type de fichier non conforme';
 }
 
 if($erreur == ""){
 	if(move_uploaded_file($_FILES['photo']['tmp_name'], $_SESSION['cheminImage'])){
 		exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg');
 		$_SESSION['cheminImageJPG'] = mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.jpg';
+
+		if(!in_array($extension, $extensionPixmap)){
+			exec('convert '.$_SESSION['cheminImage'].' '.mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.ppm');
+			unlink($_SESSION['cheminImage']);
+			$_SESSION['cheminImage'] = mb_strcut($_SESSION['cheminImage'], 0, strlen($_SESSION['cheminImage'])-4).'.ppm';
+		}
+
 		header('Location: index.php');
 		exit();
 	}
