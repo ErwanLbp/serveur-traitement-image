@@ -6,8 +6,13 @@
 	$retour->closeCursor();
 
 	//Si non, on la met avec le temps de connection
-	if ($donnees['nbre_entrees'] == 0)
-		$bdd->query('INSERT INTO connectes VALUES(\'' . $_SERVER['REMOTE_ADDR'] . '\', ' . time() . ')');
+	if ($donnees['nbre_entrees'] == 0){
+		if(isset($_SESSION['idProfil']))
+			$bdd->exec('INSERT INTO connectes VALUES(\''.$_SERVER['REMOTE_ADDR'].'\','.time().','.$_SESSION['idProfil'].')');
+		else 
+			$bdd->exec('INSERT INTO connectes VALUES(\'' . $_SERVER['REMOTE_ADDR'] . '\', ' . time() . ',null)');
+		print_r($bdd);
+	}
 	else //Si elle y est on actualise le temps connection 
 	$bdd->query('UPDATE connectes SET timestamp=' . time() . ' WHERE ip=\'' . $_SERVER['REMOTE_ADDR'] . '\'');
 

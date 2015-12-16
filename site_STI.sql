@@ -28,7 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `connectes` (
   `ip` varchar(20) DEFAULT NULL,
-  `timestamp` int(11) DEFAULT NULL
+  `timestamp` int(11) DEFAULT NULL,
+  id int(11) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

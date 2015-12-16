@@ -79,24 +79,51 @@ if(isset($_GET['idProfil']) && $_SESSION['idProfil'] != $_GET['idProfil']){
 		
 		<div class="row"><?php echo $resultat; ?></div>
 
-		<div class="col-lg-4 table-responsive">
-			<table class="table table-bordered table-striped table-condensed">
-				<caption><h4>Tous les profils</h4></caption>
-				<thead>
-					<tr><th>Id</th><th>Pseudo</th><th>Mdp</th><th></th></tr>
-				</thead>
-				<tbody>
-					<?php
-					$req = $bdd->query('SELECT idProfil,pseudo,mdp FROM profil');
+		<div class="col-lg-4">
+			<div class="row">
+				<div class="col-lg-12 table-responsive">
+					<table class="table table-bordered table-striped table-condensed">
+						<caption><h4>Tous les profils</h4></caption>
+						<thead>
+							<tr><th>Id</th><th>Pseudo</th><th>Mdp</th><th></th></tr>
+						</thead>
+						<tbody>
+							<?php
+							$req = $bdd->query('SELECT idProfil,pseudo,mdp FROM profil');
 
-					while($donnee = $req->fetch())
-						echo '<tr><td>'.$donnee['idProfil'].'</td><td>'.$donnee['pseudo'].'</td><td>'.$donnee['mdp'].'</td><td><a class="btn btn-danger btn-xs" href="admin.php?idProfil='.$donnee['idProfil'].'">X</a></td></tr>';
-					$req->closeCursor();
-					?>
-				</tbody>
-			</table>
+							while($donnee = $req->fetch())
+								echo '<tr><td>'.$donnee['idProfil'].'</td><td>'.$donnee['pseudo'].'</td><td>'.$donnee['mdp'].'</td><td><a class="btn btn-danger btn-xs" href="admin.php?idProfil='.$donnee['idProfil'].'">X</a></td></tr>';
+							$req->closeCursor();
+							?>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12 table-responsive">
+					<table class="table table-bordered tabl-striped table-condensed">
+						<caption><h4>Utilisateurs connectés</h4></caption>
+						<thead>
+							<tr><th>IP</th><th>Pseudo</th><th>Id</th></tr>
+						</thead>
+						<tbody>
+							<?php
+							$req = $bdd->query('SELECT co.ip, pr.pseudo, pr.idProfil FROM connectes co LEFT JOIN profil pr ON co.id = pr.idProfil');
+							while($donnee = $req->fetch()){
+								echo '<tr><td>'.$donnee['ip'].'</td>';
+								if($donnee['idProfil'])
+									echo '<td>'.$donnee['pseudo'].'</td><td>'.$donnee['idProfil'].'</td></tr>';
+								else
+									echo '<td>Visiteur</td><td>Null</td></tr>';
+							}
+							$req->closeCursor();
+							?>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
-		
 		<div class="col-lg-8 table-responsive">
 			<table class="table table-bordered table-striped table-condensed">
 				<caption><h4>Toutes les transformations</h4></caption>
@@ -114,30 +141,10 @@ if(isset($_GET['idProfil']) && $_SESSION['idProfil'] != $_GET['idProfil']){
 				</tbody>
 			</table>
 		</div>
-		<div class="col-lg-4 table-responsive">
-			<table class="table table-bordered tabl-striped table-condensed">
-				<caption><h4>Utilisateurs connectés</h4</caption>
-				<thead>
-					<tr><th>IP</th><th>Pseudo</th>Id</th></tr>
-				<thead>
-				<tbody>
-				<?php
-				$req = $bdd->query('SELECT co.ip, pro.pseudo, pro.idProfil FROM connectes co, profil pro WHERE co.id = pro.idProfil (+)');
-				while($donnee = $req->fetch()){
-					echo '<tr><td>'.$donnee['ip'].'</td>';
-					if($donnee['idProfil'])
-						echo '<td>'.$donnee['pseudo'].'</td><td>'.$donnee['idProfil'].'</td></tr>';
-					else
-						echo '<td>Visiteur</td><td>Null</td></tr>';
-				}
-				$req->closeCursor();
-				?>
-				<tbody>
-			</table>
-		</div>
+		
 
 	</article>
-	
+
 	<?php include('footer.php'); ?>
 </body>
 </html>
